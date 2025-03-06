@@ -106,7 +106,6 @@
 // console.log(sorting(arr));
 
 function insertionSort1(n, arr) {
-  // Write your code here
   key = arr[n - 1];
   i = arr[n - 2];
 
