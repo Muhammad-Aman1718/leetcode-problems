@@ -88,19 +88,39 @@
 // let testArray = ["64", "25", "12", "22", "11"];
 // console.log(bigSorting(testArray)); // Output: [11, 12, 22, 25, 64]
 
-function sorting(arr) {
-  let n = arr.length;
-  // for (let i = 0; i < n - 1; i++) {
-  //   // console.log(arr[i]);
-  //   for (let j = 0; j < n - i - 1; j++) {
-  //     if (arr[j] > arr[j + 1]) {
-  //       [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-  //     }
-  //   }
-  // }
-  return arr;
+// function sorting(arr) {
+//   let n = arr.length;
+//   for (let i = 0; i < n - 1; i++) {
+//     // console.log(arr[i]);
+//     for (let j = 0; j < n - i - 1; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+//       }
+//     }
+//   }
+//   return arr;
+// }
+
+// let arr = [5, 3, 8, 1, 2];
+// // let arr = ["3", "100", "20", "1"];
+// console.log(sorting(arr));
+
+function insertionSort1(n, arr) {
+  // Write your code here
+  key = arr[n - 1];
+  i = arr[n - 2];
+
+  while (i >= 0 && arr[i] > key) {
+    arr[i + 1] = arr[i]; 
+    console.log(arr.join(" ")); 
+    i--;
+  }
+
+  arr[i + 1] = key;
+  console.log(arr.join(" "));
 }
 
-let arr = [5, 3, 8, 1, 2];
-// let arr = ["3", "100", "20", "1"];
-console.log(sorting(arr));
+let int = 5;
+let arr = [1, 2, 4, 5, 3];
+
+console.log(insertionSort1(int, arr));
