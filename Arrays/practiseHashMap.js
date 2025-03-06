@@ -105,21 +105,29 @@
 // // let arr = ["3", "100", "20", "1"];
 // console.log(sorting(arr));
 
-function insertionSort1(n, arr) {
-  let value = arr[n - 1]; // Rightmost unsorted value (3)
-  let i = n - 2;
+// function insertionSort1(n, arr) {
+//   let value = arr[n - 1]; // Rightmost unsorted value (3)
+//   let i = n - 2;
 
-  while (i >= 0 && arr[i] > value) {
-    arr[i + 1] = arr[i]; // Shift element to the right
-    console.log(arr.join(" ")); // Print current array state
-    i--;
-  }
+//   while (i >= 0 && arr[i] > value) {
+//     arr[i + 1] = arr[i]; // Shift element to the right
+//     console.log(arr.join(" ")); // Print current array state
+//     i--;
+//   }
 
-  arr[i + 1] = value; // Insert the value at the correct position
-  console.log(arr.join(" ")); // Final output
+//   arr[i + 1] = value; // Insert the value at the correct position
+//   console.log(arr.join(" ")); // Final output
+// }
+
+// // Example Run
+// let n = 5;
+// let arr = [2, 4, 6, 8, 3];
+// insertionSort1(n, arr);
+
+function insertionSort2(n, arr) {
+  // Write your code here
+  
 }
 
-// Example Run
-let n = 5;
-let arr = [2, 4, 6, 8, 3];
-insertionSort1(n, arr);
+let n = 7;
+let arr = [3, 4, 7, 5, 6, 2, 1];
