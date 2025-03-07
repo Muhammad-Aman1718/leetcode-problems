@@ -124,10 +124,48 @@
 // let arr = [2, 4, 6, 8, 3];
 // insertionSort1(n, arr);
 
-function insertionSort2(n, arr) {
-  // Write your code here
-  
-}
+// function insertionSort2(n, arr) {
+//   // Loop from the second element (index 1) to the last element
+//   for (let i = 1; i < n; i++) {
+//     let key = arr[i]; // Current element to be placed correctly
+//     let j = i - 1;
+
+//     while (j >= 0 && arr[j] > key) {
+//       arr[j + 1] = arr[j];
+//       j--;
+//     }
+
+//     // Place the key at its correct position
+//     arr[j + 1] = key;
+//     console.log(arr.join(" "));
+//   }
+// }
+
+const insertionSort2 = (n, arr) => {
+  for (let i = 1; i < n; i++) {
+    let curr = arr[i];
+    let prev = i - 1;
+
+    while (prev >= 0 && arr[prev] > curr) {
+      arr[prev + 1] = arr[prev];
+      prev--;
+    }
+
+    arr[prev + 1] = curr;
+    console.log(arr.join(" "));
+  }
+};
 
 let n = 7;
 let arr = [3, 4, 7, 5, 6, 2, 1];
+
+insertionSort2(n, arr);
+
+// expected output
+
+// 3 4 7 5 6 2 1
+// 3 4 7 5 6 2 1
+// 3 4 5 7 6 2 1
+// 3 4 5 6 7 2 1
+// 2 3 4 5 6 7 1
+// 1 2 3 4 5 6 7
