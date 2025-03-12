@@ -36,23 +36,27 @@
 // const num = 5;
 // console.log(decimalConverter(num));
 
-const insertionSort = (arr, n) => {
-  for (let i = 1; i < n; i++) {
-    let curr = arr[i];
-    let prev = i - 1;
+// const insertionSort = (arr, n) => {
+//   for (let i = 1; i < n; i++) {
+//     let curr = arr[i];
+//     let prev = i - 1;
 
-    while (prev >= 0 && arr[prev] > curr) {
-      arr[prev + 1] = arr[prev];
-      prev--;
-      console.log(arr);
-    }
+//     while (prev >= 0 && arr[prev] > curr) {
+//       arr[prev + 1] = arr[prev];
+//       prev--;
+//       console.log(arr);
+//     }
 
-    arr[prev + 1] = curr;
-  }
-  console.log(arr);
-};
+//     arr[prev + 1] = curr;
+//   }
+//   console.log(arr);
+// };
 
-let arr = [31, 41, 59, 26, 41, 58];
-let num = 6;
+// let arr = [31, 41, 59, 26, 41, 58];
+// let num = 6;
 
-insertionSort(arr, num);
+// insertionSort(arr, num);
+
+
+
+
