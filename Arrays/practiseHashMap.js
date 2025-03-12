@@ -21,17 +21,38 @@
 
 // Convert to any decimal number into binary form
 
-const decimalConverter = (num) => {
-  const arr = [];
+// const decimalConverter = (num) => {
+//   const arr = [];
 
-  while (num > 0) {
-    arr.unshift(num % 2);
+//   while (num > 0) {
+//     arr.unshift(num % 2);
 
-    let binary = num / 2;
-    num = ~~binary;
+//     let binary = num / 2;
+//     num = ~~binary;
+//   }
+//   return arr.join(" ");
+// };
+
+// const num = 5;
+// console.log(decimalConverter(num));
+
+const insertionSort = (arr, n) => {
+  for (let i = 1; i < n; i++) {
+    let curr = arr[i];
+    let prev = i - 1;
+
+    while (prev >= 0 && arr[prev] > curr) {
+      arr[prev + 1] = arr[prev];
+      prev--;
+      console.log(arr);
+    }
+
+    arr[prev + 1] = curr;
   }
-  return arr.join(" ");
+  console.log(arr);
 };
 
-const num = 5;
-console.log(decimalConverter(num));
+let arr = [31, 41, 59, 26, 41, 58];
+let num = 6;
+
+insertionSort(arr, num);
