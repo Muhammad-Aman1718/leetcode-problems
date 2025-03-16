@@ -12,10 +12,8 @@
  */
 
 function sortedArrayToBST(nums) {
-    // Base case: If the array is empty, return null
     if (nums.length === 0) return null;
   
-    // Find the middle element
     const mid = Math.floor(nums.length / 2);
   
     // Create a new TreeNode with the middle element as its value
