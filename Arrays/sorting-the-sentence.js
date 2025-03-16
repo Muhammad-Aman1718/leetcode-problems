@@ -12,5 +12,6 @@ var sortSentence = function (s) {
 };
 
 let s = "is2 sentence4 This1 a3";
+// let s = "my3 you1 hero4 are2";
 
 console.log(sortSentence(s));
