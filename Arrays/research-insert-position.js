@@ -19,7 +19,6 @@ var searchInsert = function (nums, target) {
       high = mid - 1;
     }
   }
-
   return low;
 };
 
