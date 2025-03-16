@@ -11,7 +11,6 @@ var generate = function (numRows) {
     for (let j = 1; j < i; j++) {
       row[j] = res[i - 1][j - 1] + res[i - 1][j];
     }
-
     res.push(row);
   }
 
