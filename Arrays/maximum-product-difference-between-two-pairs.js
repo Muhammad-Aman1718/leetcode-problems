@@ -10,6 +10,7 @@ var maxProductDifference = function (nums) {
   return maxDifference;
 };
 
+
 let nums = [5, 6, 2, 7, 4];
 // let nums = [4, 2, 5, 9, 7, 4, 8];
 
