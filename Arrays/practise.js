@@ -8,5 +8,5 @@ var sum = function (arr) {
   // }
 };
 
-// let arr = [12, 35, 1, 10, 34, 1];
+let arr = [12, 35, 1, 10, 34, 1];
 console.log(sum(arr));
