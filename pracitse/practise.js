@@ -1,5 +1,9 @@
-let nums = [5, 2, 8, 1];
+let map = {};
+let maps = new Map();
 
-nums.sort((a, b) => a - b);
+map[2] = 0;
+maps.set(3, "aman");
 
-console.log(nums);
+
+console.log("this is map ", map);
+console.log(maps);
