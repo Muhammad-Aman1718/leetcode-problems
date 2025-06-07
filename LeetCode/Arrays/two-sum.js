@@ -32,9 +32,10 @@ var twoSum = function (nums, target) {
   return []; // No valid pair found
 };
 
+let number = [2, 7, 11, 15];
 // let number = [3, 2, 9, 5, 5, 4];
-let number = [3, 2, 9, 5, 5, 8, 0, 7, 4];
-// let target = 9;
-let target = 6;
+// let number = [3, 2, 9, 5, 5, 8, 0, 7, 4];
+let target = 9;
+// let target = 6;
 
 console.log(twoSum(number, target));
