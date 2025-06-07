@@ -15,7 +15,7 @@ var average = function (salary) {
 
   total -= minVal + maxVal;
 
-  let avg = total / (salary.length - 2);
+  // let avg = total / (salary.length - 2);
 
   return avg;
 };
