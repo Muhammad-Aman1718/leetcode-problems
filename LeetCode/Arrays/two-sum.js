@@ -29,7 +29,6 @@ var twoSum = function (nums, target) {
     }
     map[nums[i]] = i; // Store current number with its index
   }
-
   return []; // No valid pair found
 };
 
