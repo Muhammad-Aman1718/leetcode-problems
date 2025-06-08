@@ -13,6 +13,7 @@ var removeDuplicates = function (nums) {
     }
   }
   return k;
+
 };
 
 let nums = [1, 1, 2];
