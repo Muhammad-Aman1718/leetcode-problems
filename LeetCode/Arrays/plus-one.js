@@ -14,6 +14,7 @@ var plusOne = function (digits) {
     }
   }
   digits.unshift(1);
+
   return digits;
 };
 
