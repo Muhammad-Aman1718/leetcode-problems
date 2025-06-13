@@ -1,29 +1,22 @@
-import math
+def primeNum(a: int):
 
-# # Function to find LCM
-# def find_lcm(a, b):
-#     if a > b:
-#         greater = a
-#     else:
-#         greater = b
+    if (a == 2) or (a == 3):
+        return print("this is prime number")
 
-#     while True:
-#         if (greater % a == 0) and (greater % b == 0):
-#             lcm = greater
-#             break
-#         greater += 1
+    # isPrime = True
+    i = 2
 
-#     return lcm
+    while i <= a:
+        if a / i == 0:
+            print(i)
+            return print("this is prime number")
+        i += 1
+        print(a / i , "this is division")
+        print(i)
 
-
-def find_hcf(a: int, b: int) -> int:
-    return math.gcd(a, b)
+    return print("this number is not prime")
 
 
-# # User input
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
+num = int(input("Enter your Number : "))
 
-# Call function and print result
-result = find_hcf(num1, num2)
-print("LCM of", num1, "and", num2, "is:", result)
+print(primeNum(num))
