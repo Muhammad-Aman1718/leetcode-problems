@@ -15,20 +15,14 @@
 # print(primeNum(num))
 
 
-# def fun():
-#     s = 2
-#     return s
+a = int(input("Enter your number : "))
 
-# print(fun())
-
-
-def fun():
-
-    yield 1
-    yield 2
-    yield 3
-    # return 
-
-
-for value in fun():
-    print(value)
+match a:
+    case 1:
+        print("one")
+    case 2:
+        print("two")
+    case 3:
+        print("three")
+    case _:
+        print("other number")
