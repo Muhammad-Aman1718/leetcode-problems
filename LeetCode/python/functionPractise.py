@@ -7,10 +7,7 @@
 # its Optional
 
 
-def add(a: int, b: int) -> int:
-    return a + b
+# def add(a: int, b: int) -> int:
+#     return a + b
 
 
-a = "aman"
-
-print(a[0:2])
