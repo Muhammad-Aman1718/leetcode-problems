@@ -11,3 +11,6 @@
 #     return a + b
 
 
+a = "aman"
+
+print(a[0:2])
