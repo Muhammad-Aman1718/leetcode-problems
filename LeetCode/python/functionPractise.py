@@ -31,4 +31,7 @@ print("this float ", dir(float))  # sab string methods list kar dega
 print("this is list ", dir(list))  # sab string methods list kar dega
 print("this is dictionary", dir(dict))  # sab string methods list kar dega
 print("this is set ", dir(set))  # sab string methods list kar dega
+print("this is bool", dir(bool))  # sab string methods list kar dega"
 print("this is tuple", dir(tuple))  # sab string methods list kar dega
+
+
