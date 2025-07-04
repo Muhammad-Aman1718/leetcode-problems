@@ -11,25 +11,16 @@
 #     return a + b
 
 
-# Recursion
+# *arugs and **kwargs
+def add(*args: int, **kwargs: int) -> int:
+    total = 0
+    for arg in args:
+        total += arg
+    for key, value in kwargs.items():
+        total += value
+    return total
 
 
-# a = input("Enter a number to find its factorial: ")
-
-# print(a.upper())
-# print(a.lower())
-# print(a.capitalize())
-# print(a.casefold())
-# print(a.center(500))
-# print(a.islower())
-# print(a.isupper())
-# print(a.title())
-# print(a.upper())
-print("this is str", dir(str))
-print("this is int", dir(int))
-print("this float ", dir(float))
-print("this is list ", dir(list))
-print("this is dictionary", dir(dict))
-print("this is set ", dir(set))
-print("this is bool", dir(bool))
-print("this is tuple", dir(tuple))
+# Example usage
+result = add(1, 2, 3, x=4, y=5)
+print(result)  # Output: 15
