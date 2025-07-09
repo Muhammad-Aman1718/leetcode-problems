@@ -21,6 +21,6 @@ def add(*args: int, **kwargs: int) -> int:
     return total
 
 
-# Example usage
+Example usage
 result = add(1, 2, 3, x=4, y=5)
 print(result)  # Output: 15
