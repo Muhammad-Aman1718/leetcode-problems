@@ -11,4 +11,3 @@
 #     return a + b
 
 
-people = 326
