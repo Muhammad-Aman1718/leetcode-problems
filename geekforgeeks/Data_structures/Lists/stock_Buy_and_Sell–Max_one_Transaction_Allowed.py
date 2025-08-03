@@ -21,9 +21,18 @@
 
 
 class Solution:
-    def maximumProfit(self, prices: list[int]) -> int:
-        # code here
-        print(prices.sort())
+    def maxProfit(self, prices):
+        min_price = float("inf")  # Initially assume a very high price
+        max_profit = 0
+
+        for price in prices:
+            if price < min_price:
+                min_price = price  # Update if current price is lower
+            profit = price - min_price
+            if profit > max_profit:
+                max_profit = profit  # Update max profit if current is higher
+
+        return max_profit
 
     prices: list[int] = [7, 10, 1, 3, 6, 9, 2]
     print(maximumProfit(prices))
