@@ -23,10 +23,3 @@
 # # print(len(n))
 # print(sol.addDigits(n))
 
-
-a = 5
-b = 2
-
-a //= b
-
-print(a)
