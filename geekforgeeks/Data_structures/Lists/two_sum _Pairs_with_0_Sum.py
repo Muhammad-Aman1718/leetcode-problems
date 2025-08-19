@@ -19,19 +19,58 @@
 
 
 class Solution:
-    def getPairs(self, arr:list[int]):
+    def getPairs(self, arr: list[int]) -> list[int]:
         # code here
+
+        # This is code is written by me
+
+        # twoDArray: list[int] = []
+
+        # for i in range(len(arr)):
+        #     array: list[int] = []
+        #     for j in range(i + 1, len(arr)):
+        #         if arr[i] + arr[j] == 0:
+        #             if arr[i] not in array:
+        #                 array.append(arr[i])
+        #                 array.append(arr[j])
+        #     array.sort()
+        #     if len(array) != 0 and array not in twoDArray:
+        #         twoDArray.append(array)
+        # twoDArray.sort()
+        # return twoDArray
+
+        # this code is written by chatgpt
+
+        original_set = set(arr)
+
+        result_pairs: set[int] = set()
+
+        zero_count = arr.count(0)  # count how many zeros
+
         for num in arr:
-            opposite = -num
-            if num == opposite
+            # handle zero: only accept if there are at least 2 zeros
+            if num == 0:
+                if zero_count >= 2:
+                    result_pairs.add((0, 0))
+                # skip the rest so it doesn't get added again
+                continue
 
+            opp = -num
+            if opp in original_set:
+                pair = tuple(sorted((num, opp)))
+                result_pairs.add(pair)
 
-
-
-
+        # convert each tuple to list & sort final result
+        final_result: list[int] = [list(p) for p in result_pairs]
+        final_result.sort()
+        return final_result
 
 
 obj = Solution()
-arr = [6, 1, 8, 0, 4, -9, -1, -10, -6, -5]
+# arr = [6, 1, 8, 0, 4, -9, -1, -10, -6, -5]
+# arr = [-1, 0, 1, 2, -1, -4]
+# arr = [-1, 10, 7, 3, -9, -9, -7]
+# arr = [-1, 0, 1, 2, -1, -4]
+arr = [-8, -10, -10, -10, 10, 6, 1, 10]
 
 print(obj.getPairs(arr))
