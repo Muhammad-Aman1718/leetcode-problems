@@ -26,7 +26,6 @@ class Solution:
                 min_index = min(min_index, index_map[arr[i]])
             else:
                 index_map[arr[i]] = i + 1  # 1-based indexing
-
         return min_index if min_index != float("inf") else -1
 
 
