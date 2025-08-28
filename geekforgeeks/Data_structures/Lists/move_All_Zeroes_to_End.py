@@ -21,14 +21,19 @@
 class Solution:
     def pushZerosToEnd(self, arr: list[int]):
         # code here
-        for i in arr:
-            print("ths is  i , ", i)
-            if i == 0:
-                print("this is i , ", i)
-                for x in range(i + 1, len(arr)):
-                    print("this is  x , ", arr[x])
-                    if arr[x] != 0:
-                        arr[x] = i
+        # pointer for placing non-zero elements
+        pos = 0
+
+        # Step 1: Place non-zero elements in their correct position
+        for i in range(len(arr)):
+            if arr[i] != 0:
+                arr[pos] = arr[i]
+                pos += 1
+
+        while pos < len(arr):
+            arr[pos] = 0
+            pos += 1
+
         return arr
 
 
