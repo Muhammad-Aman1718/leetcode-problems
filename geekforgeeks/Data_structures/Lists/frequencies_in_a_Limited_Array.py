@@ -19,7 +19,7 @@
 
 
 class Solution:
-    def frequencyCount(self, arr: list[int]):
+    def frequencyCount(self, arr: list[int]) -> list[int]:
         #  code here
         # array: list[int] = []
         # frequency = 0
@@ -32,10 +32,10 @@ class Solution:
         #         frequency = 0
         #     array.append(frequency)
         # return array
-        
+
         # CHAT GPT SOLUTION
-        
-        freq = {}
+
+        freq: dict[int, int] = {}
 
         for num in arr:
             if num in freq:
@@ -44,7 +44,7 @@ class Solution:
                 freq[num] = 1
 
         # step 2: build result array
-        result = []
+        result: list[int] = []
         for i in range(1, len(arr) + 1):
             result.append(freq.get(i, 0))  # agar i na ho to 0
 
