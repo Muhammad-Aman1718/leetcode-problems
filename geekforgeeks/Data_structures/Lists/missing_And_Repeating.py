@@ -9,7 +9,7 @@
 # Output: [2, 1]
 # Explanation: Repeating number is 2 and the missing number is 1.
 
-# Input: arr[] = [1, 3, 3] 
+# Input: arr[] = [1, 3, 3]
 # Output: [3, 2]
 # Explanation: Repeating number is 3 and the missing number is 2.
 
@@ -18,18 +18,30 @@
 # Explanation: Repeating number is 1 and the missing number is 5.
 
 
-
 class Solution:
-    def findTwoElement(self, arr:list[int]):
+    def findTwoElement(self, arr: list[int]):
         # code here
-        array =[]
-        arr.sort()
-        
-        
+        seen: set[int] = set()
+        duplicate = -1
+
+        n = len(arr)
+
+        for num in arr:
+            if num in seen:
+                duplicate = num
+            else:
+                seen.add(num)
+        missing = -1
+        for i in range(1, n + 1):
+            if i not in seen:
+                missing = i
+                break
+        return [duplicate, missing]
+
 
 obj = Solution()
 
-arr = [4, 3, 6, 2, 1, 1]
+# arr = [4, 3, 6, 2, 1, 1]
+arr = [6, 5, 8, 7, 1, 4, 1, 3, 2]
 
 print(obj.findTwoElement(arr))
-
