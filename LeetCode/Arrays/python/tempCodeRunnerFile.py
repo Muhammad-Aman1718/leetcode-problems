@@ -1,1 +1,0 @@
-len(dictoinary) < maximum
