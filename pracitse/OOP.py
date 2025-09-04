@@ -1,26 +1,23 @@
-# class Car:
-#     def __init__(self, brand, color):
-#         self.brand = brand
-#         self.color = color
+class Solution:
+    def check_elements(self, arr, n, A, B):
+        # Your code goes here
+        # arr.sort()
+        rangeAB = 0
+        count = 0
+        for i in range(A, B + 1):
+            if i in arr:
+                count += 1
+            rangeAB += 1
 
-#     def drive(self):
-#         print(f"{self.color} {self.brand} is driving.")
-
-
-# # Objects
-# car1 = Car("Toyota", "Red")
-# car2 = Car("Honda", "Blue")
-
-# car1.drive()  # Red Toyota is driving.
-# car2.drive()  # Blue Honda is driving.
-
-# this is
+        if count == rangeAB:
+            return True
+        return False
 
 
-class Student:
-    name = "aman"
+obj = Solution()
+n = 7
+A = 2
+B = 6
+arr = {1, 4, 5, 2, 7, 8, 3}
 
-
-s1 = Student()
-s2 = Student()
-print(s1, s2.name)
+print(obj.check_elements(arr, n, A, B))
