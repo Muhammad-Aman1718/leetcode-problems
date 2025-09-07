@@ -1,24 +1,49 @@
 class Solution:
-    def check_elements(self, a: list[int], d: int):
-        # Your code goes here
-        # arr.sort()
-        # count = 0
-        # for i in b:
-        #     if i in a:
-        #         count += 1
-        #         a.remove(i)
+    def check_elements(self, arr: list[int]):
 
-        # if count == len(b):
-        #     return True
-        # return False
+        # left = int(len(arr) / 2)
 
-        for i in range(d):
-            a.insert(len(a), a[0])
-            a.pop(0)
-        return a
+        # addLeft = 0
+        # addRight = 0
+
+        # print(left)
+        # for i in range(left):
+        #     addLeft += arr[i]
+
+        # for x in range(left, len(arr)):
+        #     print("this is x  ", x)
+        #     addRight += arr[x]
+
+        # multiple = addLeft * addRight
+
+        # return multiple
+
+        nagetive: list[int] = []
+        positive: list[int] = []
+        newArray: list[int] = []
+
+        for i in arr:
+            if i >= 0:
+                positive.append(i)
+            else:
+                nagetive.append(i)
+
+        nag = 0
+        pos = 0
+
+        for x in range(len(arr)):
+            print(x)
+            if x % 2 == 0:
+                newArray.append(positive[pos])
+                pos += 1
+            else:
+                newArray.append(nagetive[nag])
+                nag += 1
+
+        return newArray
 
 
 obj = Solution()
-a = [-1, -2, -3, 4, 5, 6, 7]
-d = 2
-print(obj.check_elements(a, d))
+
+arr = [-1, 2, -3, 4, -5, 6]
+print(obj.check_elements(arr))
