@@ -34,16 +34,19 @@ class Solution:
         freq: dict[int, int] = {}
 
         for i, num in enumerate(nums):
-            # if num not in first:
-            #     first[num] = i
-            # last[num] = i
-            # freq[num] = freq.get(num, 0) + 1
+            if num not in first:
+                first[num] = i
+            last[num] = i
+            freq[num] = freq.get(num, 0) + 1
+        degree = max(freq.values())
+        min_length = float("inf")
 
-            print("this is index ", i, "this is value  ", num)
+        for num in freq:
+            if freq[num] == degree:
+                length = last[num] - first[num] + 1
+                min_length = min(min_length, length)
 
-        # print("this is first ", first)
-        # print("this is last ", last)
-        return freq
+        return int(min_length)
 
 
 obj = Solution()
