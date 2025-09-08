@@ -18,6 +18,8 @@
 # Explanation: Number 9 is repeated and number 5 is missing so the answer is [9,5].
 
 
+
+
 class Solution:
     def findMissingAndRepeatedValues(self, grid: list[list[int]]) -> list[int]:
         elements: list[int] = []
