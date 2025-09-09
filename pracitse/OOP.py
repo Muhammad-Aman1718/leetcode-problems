@@ -1,18 +1,22 @@
 class Solution:
-    def check_elements(self, arr: list[int]):
 
-        count = 0
-        for i in arr:
-            string = str(i)
-            if string == string[::-1]:
-                count += 1
+    # Default Constructor
+    # def __init__(self) -> None:
+    #     print("this is constructor ----> ")
 
-        if count == len(arr):
-            return True
-        return False
+    # parameterized Constructor    # is ki priority zayda hoti ha
+    def __init__(self, name: str, marks: list[int]) -> None:
+        self.name = name
+        self.marks = marks
+        print("this is parameterized constructor ----> ")
+        
+    def average():
+        
 
 
 obj = Solution()
+# print(obj.aman("aman", 34))
+# print(obj.aman)
 
-arr = [111, 222, 333, 444, 555]
-print(obj.check_elements(arr))
+# arr = [111, 222, 333, 444, 555]
+# print(obj.check_elements(arr))
