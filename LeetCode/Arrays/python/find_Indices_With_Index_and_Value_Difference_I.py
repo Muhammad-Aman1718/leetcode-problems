@@ -40,13 +40,44 @@
 
 class Solution:
     def findIndices(
-        self, arr: list[int], indexDifference: int, valueDifference: int
+        self, nums: list[int], indexDifference: int, valueDifference: int
     ) -> list[int]:
-        
+
+        # for i in range(len(nums)):
+        #     for j in range(i + 1, len(nums)):
+        #         if (
+        #             abs(i - j) >= indexDifference
+        #             and abs(nums[i] - nums[j]) >= valueDifference
+        #         ):
+        #             return [i, j]
+
+        # return [-1, -1]
+
+        n = len(nums)
+
+        i, j = 0, indexDifference  # j start from i + indexDifference
+
+        while i < n and j < n:
+            # check condition
+            if abs(nums[i] - nums[j]) >= valueDifference:
+                return [i, j]
+
+            # move j forward
+            j += 1
+            # if j goes out of range, move i forward and reset j
+            if j >= n:
+                i += 1
+                j = i + indexDifference
+
+        return [-1, -1]
 
 
 obj = Solution()
-nums = [5, 1, 4, 1]
-indexDifference = 2
-valueDifference = 4
+# nums = [5, 1, 4, 1]
+# indexDifference = 2
+# valueDifference = 4
+nums = [2, 1]
+indexDifference = 0
+valueDifference = 0
+
 print(obj.findIndices(nums, indexDifference, valueDifference))
