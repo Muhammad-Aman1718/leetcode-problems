@@ -25,7 +25,6 @@
 class Solution:
     def shortestToChar(self, s: str, c: str) -> list[int]:
 
-        forward = 0
         n = len(s)
         answer = [0] * n
 
