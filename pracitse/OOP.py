@@ -69,40 +69,91 @@
 
 
 # Node class
-class Node:
-    def __init__(self, data):
-        self.data = data  # value store karta hai
-        self.next = None  # next node ka reference
+# class Node:
+#     def __init__(self, data):
+#         self.data = data  # value store karta hai
+#         self.next = None  # next node ka reference
 
 
-# LinkedList class
-class LinkedList:
-    def __init__(self):
-        self.head = None  # starting node
+# # LinkedList class
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None  # starting node
 
-    # insert at end
-    def append(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        current = self.head
-        while current.next:  # last tak jao
-            current = current.next
-        current.next = new_node
+#     # insert at end
+#     def append(self, data):
+#         new_node = Node(data)
+#         if not self.head:
+#             self.head = new_node
+#             return
+#         current = self.head
+#         while current.next:  # last tak jao
+#             current = current.next
+#         current.next = new_node
 
-    # print linked list
-    def display(self):
-        current = self.head
-        while current:
-            print(current.data, end=" -> ")
-            current = current.next
-        print("None")
+#     # print linked list
+#     def display(self):
+#         current = self.head
+#         while current:
+#             print(current.data, end=" -> ")
+#             current = current.next
+#         print("None")
 
 
-# Test
-ll = LinkedList()
-ll.append(10)
-ll.append(20)
-ll.append(30)
-ll.display()
+# # Test
+# ll = LinkedList()
+# ll.append(10)
+# ll.append(20)
+# ll.append(30)
+# ll.display()
+
+
+# num = 10
+# num2 = 40
+# print(num)
+# print(id(num))
+# num = 20
+
+# print(num)
+# print(num2)
+# print(id(num))
+# print(id(num2))
+
+
+# class Node:
+#     def __init__(self, data: int) -> None:
+#         print("this is constructor", data)
+#         self.data = data
+#         self.next = None
+
+
+# a = Node(4)
+# b = Node(5)
+# c = Node(6)
+
+# a.next = b
+# b.next = c
+# b.data = 10
+# head = a
+# print(head.data)
+# print(head.next.data)
+
+
+# num = 10
+# print(id(num))
+# num = 20
+# print(id(num))
+# num2 = []
+
+
+# arr = [1, 2, 43, 4]
+# print(id(arr))
+# arr2 = arr
+# arr2.append(49)
+# print(id(arr))
+# num = 12
+# int *p = &num
+
+
+
+
