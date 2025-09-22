@@ -120,40 +120,39 @@
 # print(id(num2))
 
 
-# class Node:
-#     def __init__(self, data: int) -> None:
-#         print("this is constructor", data)
-#         self.data = data
-#         self.next = None
+class Node:
+    def __init__(self, data: int):
+        print("this is constructor    ", data)
+        self.data = data
+        self.next: "Node | None" = None
 
 
-# a = Node(4)
-# b = Node(5)
-# c = Node(6)
-
-# a.next = b
-# b.next = c
-# b.data = 10
-# head = a
-# print(head.data)
-# print(head.next.data)
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node5 = Node(5)
+node6 = Node(6)
 
 
-# num = 10
-# print(id(num))
-# num = 20
-# print(id(num))
-# num2 = []
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = node6
 
 
-# arr = [1, 2, 43, 4]
-# print(id(arr))
-# arr2 = arr
-# arr2.append(49)
-# print(id(arr))
-# num = 12
-# int *p = &num
+head = node1
+curr = head
 
 
+node0 = Node(0)
+node0.next = node1
+head = node0
 
+curr = head
 
+while curr:
+    print(curr.data, end="-> ")
+    curr = curr.next
+print("None")
