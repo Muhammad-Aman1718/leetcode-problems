@@ -35,7 +35,6 @@ class Solution:
             else:
                 cleaned += " "
 
-        # 3. words split
         words = cleaned.split()
 
         freq: dict[str, int] = {}
