@@ -34,16 +34,18 @@
 
 
 class Solution:
-    def sumOddLengthSubarrays(self, arr:list[int])-> int:
-        
-        
-        
-        
-        
-        
-        
+    def sumOddLengthSubarrays(self, arr: list[int]) -> int:
+
+        res = 0
+        freq = 0
+        n = len(arr)
+
+        for i in range(n):
+            freq = freq - (i + 1) // 2 + (n - i + 1) // 2
+            res += freq * arr[i]
+        return res
+
+
 obj = Solution()
-arr = [1,4,2,5,3]
+arr = [1, 4, 2, 5, 3]
 print(obj.sumOddLengthSubarrays(arr))
-
-
