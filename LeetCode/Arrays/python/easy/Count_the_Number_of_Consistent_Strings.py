@@ -28,23 +28,29 @@ class Solution:
     def countConsistentStrings(self, allowed: str, words: list[str]) -> int:
 
         countConsistent = 0
-        sortedArray: list[str] = []
+        allowedSort = set(sorted(allowed))
+        sortedArray: list[list[str]] = []
         for i in words:
-            sortedArray.append("".join(set(sorted(i))))
-
+            sortedArray.append(list(sorted(set(i))))
+        print(sortedArray, "     this i")
+        print("     this i", allowedSort)
         for i in sortedArray:
             print("this is           i ", i)
-            if i in allowed:
-                print("this is i ", i)
+            check = True
+            for n in i:
+                if n not in allowedSort:
+                    check = False
+            if check:
                 countConsistent += 1
-        # if "ab" in allowed:
-        #     return True
+
         return countConsistent
 
 
 obj = Solution()
 # allowed = "ab"
 # words = ["ad", "bd", "aaab", "baa", "badab"]
-allowed = "abc"
-words = ["a", "b", "c", "ab", "ac", "bc", "abc"]
+# allowed = "abc"
+# words = ["a", "b", "c", "ab", "ac", "bc", "abc"]
+allowed = "cad"
+words = ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"]
 print(obj.countConsistentStrings(allowed, words))
