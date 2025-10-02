@@ -17,17 +17,24 @@
 # Input: nums = [2,0,1]
 # Output: [0,1,2]
 
-class Solution:
-    def sortColors(self, nums:list[int]) -> None:
-        
-        
-        
-        
-        
-        
-        
-        
 
-obj = Solution()        
-nums = [2,0,2,1,1,0]
+class Solution:
+    def sortColors(self, nums: list[int]) -> None:
+
+        numsSet: dict[int, int] = {}
+        for i in nums:
+            numsSet[i] = numsSet.get(i, 0) + 1
+
+        idx = 0
+
+        for color in range(3):
+            freq = numsSet.get(color, 0)
+            nums[idx : idx + freq] = [color] * freq
+            idx += freq
+
+
+obj = Solution()
+nums = [2, 0, 2, 1, 1, 0]
+# nums = [2, 0, 1]
+# nums = [1]
 print(obj.sortColors(nums))
