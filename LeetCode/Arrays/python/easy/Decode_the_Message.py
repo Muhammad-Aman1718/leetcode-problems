@@ -60,16 +60,27 @@ class Solution:
         ]
         messageAlphabet: dict[str, str] = {}
         removeSpaces = "".join(key.split(" "))
-        print("this is remove space   ", removeSpaces)
-
-        for i in range(min(len(removeSpaces), len(alphabet))):
-            ch = removeSpaces[i]
+        alphaIndex = 0
+        for ch in removeSpaces:
             if ch not in messageAlphabet:
-                messageAlphabet[ch] = alphabet[i]
-        print("this is alphabet    ", messageAlphabet)
+                messageAlphabet[ch] = alphabet[alphaIndex]
+                alphaIndex += 1
+            if alphaIndex == 26:
+                break
+        result: str = ""
+
+        for i in range(len(message)):
+            if message[i] in messageAlphabet:
+                result += messageAlphabet[message[i]]
+            else:
+                result += " "
+
+        return result
 
 
 obj = Solution()
-key = "the quick brown fox jumps over the lazy dog"
-message = "vkbs bs t suepuv"
+# key = "the quick brown fox jumps over the lazy dog"
+# message = "vkbs bs t suepuv"
+key = "eljuxhpwnyrdgtqkviszcfmabo"
+message = "zwx hnfx lqantp mnoeius ycgk vcnjrdb"
 print(obj.decodeMessage(key, message))
