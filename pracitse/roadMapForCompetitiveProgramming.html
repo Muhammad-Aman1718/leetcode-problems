@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 Months CP Roadmap</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #333;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        text-align: center;
+        color: #667eea;
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.3em;
+        margin-bottom: 40px;
+        font-weight: 500;
+      }
+
+      .intro {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: 1.1em;
+      }
+
+      .month {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        border-left: 8px solid #667eea;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .month h2 {
+        color: #667eea;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .month-goal {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 4px solid #4caf50;
+        font-size: 1.1em;
+      }
+
+      .week {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .week h3 {
+        color: #764ba2;
+        font-size: 1.6em;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .topics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .topic-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .topic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .topic-card h4 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 10px;
+      }
+
+      .topic-card ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .topic-card li {
+        padding: 8px 0;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .topic-card li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .practice-section {
+        background: #e8f5e9;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 4px solid #4caf50;
+      }
+
+      .practice-section h4 {
+        color: #2e7d32;
+        margin-bottom: 10px;
+        font-size: 1.3em;
+      }
+
+      .resources {
+        background: #fff3cd;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 4px solid #ffc107;
+      }
+
+      .resources h4 {
+        color: #856404;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+
+      .platform {
+        display: inline-block;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        margin: 5px;
+        color: #667eea;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .platform:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .tips {
+        background: #e3f2fd;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+        border-left: 4px solid #2196f3;
+      }
+
+      .tips h3 {
+        color: #1976d2;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+      }
+
+      .tips ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .tips li {
+        padding: 12px 0;
+        padding-left: 30px;
+        position: relative;
+        font-size: 1.05em;
+      }
+
+      .tips li:before {
+        content: "💡";
+        position: absolute;
+        left: 0;
+      }
+
+      .difficulty {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 0.9em;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .easy {
+        background: #c8e6c9;
+        color: #2e7d32;
+      }
+
+      .medium {
+        background: #fff9c4;
+        color: #f57f17;
+      }
+
+      .hard {
+        background: #ffcdd2;
+        color: #c62828;
+      }
+
+      .timeline {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .daily-schedule {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .schedule-item {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .schedule-item strong {
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+
+      .contest-prep {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+        color: white;
+      }
+
+      .contest-prep h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+      }
+
+      .progress-tracker {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border: 2px solid #667eea;
+      }
+
+      .progress-bar {
+        background: #e0e0e0;
+        height: 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+
+      .progress-fill {
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        transition: width 0.3s ease;
+      }
+
+      .final-goal {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 30px 0;
+        font-size: 1.2em;
+      }
+
+      .final-goal h2 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+      }
+
+      .problem-count {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 10px;
+        margin: 5px;
+        font-weight: bold;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .month {
+        animation: slideIn 0.5s ease;
+      }
+
+      .emoji {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 3 Months Competitive Programming Roadmap</h1>
+      <p class="subtitle">Beginner se Advanced tak ka Complete Journey</p>
+
+      <div class="intro">
+        <h3>🎯 Is Roadmap Ka Goal</h3>
+        <p>
+          <strong
+            >3 months mein aap ban jaoge ek confident competitive
+            programmer!</strong
+          >
+        </p>
+        <p>Daily 3-4 hours dedication chahiye. Consistency is the key! 🔑</p>
+        <p style="margin-top: 15px">
+          <strong>Target:</strong> Codeforces Rating 1200+ | LeetCode 200+
+          Problems Solved
+        </p>
+      </div>
+
+      <!-- MONTH 1 -->
+      <div class="month">
+        <h2><span class="emoji">📚</span> MONTH 1: Foundation Building</h2>
+        <div class="month-goal">
+          <strong>🎯 Goal:</strong> Programming basics + Basic DSA concepts
+          master karna <br /><strong>Problems Target:</strong> 60-80 Easy
+          problems
+        </div>
+
+        <!-- Week 1 -->
+        <div class="week">
+          <h3>📅 Week 1: Programming Fundamentals</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🔤 Basics</h4>
+              <ul>
+                <li>Variables & Data Types</li>
+                <li>Input/Output</li>
+                <li>Operators</li>
+                <li>Conditional Statements</li>
+                <li>Loops (for, while)</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🔢 Basic Math</h4>
+              <ul>
+                <li>Sum, Average, Factorial</li>
+                <li>Prime Numbers Check</li>
+                <li>GCD & LCM</li>
+                <li>Powers & Modulo</li>
+                <li>Basic Pattern Printing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (20 problems)</h4>
+            <p>
+              <strong>Platforms:</strong> Codeforces (Div 2 A), LeetCode Easy,
+              HackerRank
+            </p>
+            <p><strong>Daily:</strong> 3-4 easy problems solve karo</p>
+          </div>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="week">
+          <h3>📅 Week 2: Arrays & Strings</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>📊 Arrays</h4>
+              <ul>
+                <li>Array Declaration & Traversal</li>
+                <li>Searching (Linear, Binary)</li>
+                <li>Sorting (Bubble, Selection)</li>
+                <li>Reversing Arrays</li>
+                <li>Kadane's Algorithm</li>
+                <li>Two Pointer Technique</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🔤 Strings</h4>
+              <ul>
+                <li>String Basics</li>
+                <li>String Reversal</li>
+                <li>Palindrome Check</li>
+                <li>Anagrams</li>
+                <li>String Matching</li>
+                <li>Character Frequency</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (25 problems)</h4>
+            <p><strong>Focus:</strong> Array manipulation + String problems</p>
+            <div class="problem-count">15 Array</div>
+            <div class="problem-count">10 String</div>
+          </div>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="week">
+          <h3>📅 Week 3: Time Complexity & Basic Sorting</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>⏱️ Time Complexity</h4>
+              <ul>
+                <li>Big O Notation</li>
+                <li>O(1), O(n), O(n²)</li>
+                <li>O(log n), O(n log n)</li>
+                <li>Space Complexity</li>
+                <li>Best vs Worst Case</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🔄 Advanced Sorting</h4>
+              <ul>
+                <li>Merge Sort</li>
+                <li>Quick Sort</li>
+                <li>Counting Sort</li>
+                <li>STL Sort Function</li>
+                <li>Custom Comparators</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (20 problems)</h4>
+            <p>
+              <strong>Focus:</strong> Sorting algorithms implement karo aur
+              practice karo
+            </p>
+          </div>
+        </div>
+
+        <!-- Week 4 -->
+        <div class="week">
+          <h3>📅 Week 4: Recursion & Backtracking Basics</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🔁 Recursion</h4>
+              <ul>
+                <li>Recursion Concept</li>
+                <li>Factorial, Fibonacci</li>
+                <li>Tower of Hanoi</li>
+                <li>Print Subsequences</li>
+                <li>Recursion Tree</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🔙 Basic Backtracking</h4>
+              <ul>
+                <li>N-Queens (Simple)</li>
+                <li>Subset Sum</li>
+                <li>Permutations</li>
+                <li>Combinations</li>
+                <li>Rat in Maze</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (15 problems)</h4>
+            <p>
+              <strong>Focus:</strong> Recursion mastery + Basic backtracking
+            </p>
+          </div>
+        </div>
+
+        <div class="resources">
+          <h4>📚 Month 1 Resources</h4>
+          <span class="platform">LeetCode Easy</span>
+          <span class="platform">Codeforces Div 2 (A)</span>
+          <span class="platform">HackerRank</span>
+          <span class="platform">GeeksforGeeks</span>
+          <span class="platform">CodeChef Beginner</span>
+        </div>
+      </div>
+
+      <!-- MONTH 2 -->
+      <div class="month">
+        <h2><span class="emoji">🎯</span> MONTH 2: Intermediate DSA</h2>
+        <div class="month-goal">
+          <strong>🎯 Goal:</strong> Important data structures master karna
+          <br /><strong>Problems Target:</strong> 100-120 problems (Easy +
+          Medium)
+        </div>
+
+        <!-- Week 5 -->
+        <div class="week">
+          <h3>📅 Week 5: Stack & Queue</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>📚 Stack</h4>
+              <ul>
+                <li>Stack Implementation</li>
+                <li>Balanced Parentheses</li>
+                <li>Next Greater Element</li>
+                <li>Stack using Queue</li>
+                <li>Expression Evaluation</li>
+                <li>Min Stack</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🚶 Queue</h4>
+              <ul>
+                <li>Queue Implementation</li>
+                <li>Circular Queue</li>
+                <li>Deque</li>
+                <li>Priority Queue</li>
+                <li>Sliding Window Maximum</li>
+                <li>Queue using Stack</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (25 problems)</h4>
+            <div class="problem-count">12 Stack</div>
+            <div class="problem-count">13 Queue</div>
+          </div>
+        </div>
+
+        <!-- Week 6 -->
+        <div class="week">
+          <h3>📅 Week 6: Linked List</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🔗 Linked List Types</h4>
+              <ul>
+                <li>Singly Linked List</li>
+                <li>Doubly Linked List</li>
+                <li>Circular Linked List</li>
+                <li>Insertion & Deletion</li>
+                <li>Reversal</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🎯 Important Problems</h4>
+              <ul>
+                <li>Detect Cycle (Floyd's)</li>
+                <li>Middle Element</li>
+                <li>Merge Two Lists</li>
+                <li>Remove Nth Node</li>
+                <li>Palindrome Check</li>
+                <li>Intersection Point</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (30 problems)</h4>
+            <p>
+              <strong>Focus:</strong> LeetCode Linked List section complete karo
+            </p>
+          </div>
+        </div>
+
+        <!-- Week 7 -->
+        <div class="week">
+          <h3>📅 Week 7: Trees (Binary Trees & BST)</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🌳 Binary Trees</h4>
+              <ul>
+                <li>Tree Traversals (Pre, In, Post)</li>
+                <li>Level Order Traversal</li>
+                <li>Height & Diameter</li>
+                <li>Balanced Tree Check</li>
+                <li>Lowest Common Ancestor</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🔍 Binary Search Tree</h4>
+              <ul>
+                <li>BST Operations</li>
+                <li>Search in BST</li>
+                <li>Validate BST</li>
+                <li>Kth Smallest Element</li>
+                <li>Convert to Sorted List</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (35 problems)</h4>
+            <div class="problem-count">20 Binary Tree</div>
+            <div class="problem-count">15 BST</div>
+          </div>
+        </div>
+
+        <!-- Week 8 -->
+        <div class="week">
+          <h3>📅 Week 8: Hashing & Maps</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🗺️ HashMap/HashSet</h4>
+              <ul>
+                <li>Hash Table Basics</li>
+                <li>Collision Handling</li>
+                <li>Two Sum Problem</li>
+                <li>Subarray Sum</li>
+                <li>Longest Consecutive</li>
+                <li>Group Anagrams</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>📊 Frequency Problems</h4>
+              <ul>
+                <li>Character Frequency</li>
+                <li>Top K Frequent</li>
+                <li>First Non-Repeating</li>
+                <li>Count Pairs</li>
+                <li>Distinct Elements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (30 problems)</h4>
+            <p><strong>Focus:</strong> Hashing se related medium problems</p>
+          </div>
+        </div>
+
+        <div class="resources">
+          <h4>📚 Month 2 Resources</h4>
+          <span class="platform">LeetCode Medium</span>
+          <span class="platform">Codeforces Div 2 (B)</span>
+          <span class="platform">InterviewBit</span>
+          <span class="platform">Striver's SDE Sheet</span>
+        </div>
+      </div>
+
+      <!-- MONTH 3 -->
+      <div class="month">
+        <h2>
+          <span class="emoji">🔥</span> MONTH 3: Advanced Topics & Practice
+        </h2>
+        <div class="month-goal">
+          <strong>🎯 Goal:</strong> Advanced algorithms + Contest practice
+          <br /><strong>Problems Target:</strong> 120-150 problems (Medium +
+          Hard)
+        </div>
+
+        <!-- Week 9 -->
+        <div class="week">
+          <h3>📅 Week 9: Dynamic Programming (DP)</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>💎 Basic DP</h4>
+              <ul>
+                <li>Fibonacci (Memoization)</li>
+                <li>Climbing Stairs</li>
+                <li>House Robber</li>
+                <li>Coin Change</li>
+                <li>Longest Common Subsequence</li>
+                <li>0/1 Knapsack</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🎯 DP Patterns</h4>
+              <ul>
+                <li>Top-Down (Memoization)</li>
+                <li>Bottom-Up (Tabulation)</li>
+                <li>Space Optimization</li>
+                <li>2D DP Problems</li>
+                <li>DP on Grids</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (35 problems)</h4>
+            <p>
+              <strong>Focus:</strong> LeetCode DP patterns + Atcoder DP contest
+            </p>
+          </div>
+        </div>
+
+        <!-- Week 10 -->
+        <div class="week">
+          <h3>📅 Week 10: Graphs Basics</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🕸️ Graph Representation</h4>
+              <ul>
+                <li>Adjacency Matrix</li>
+                <li>Adjacency List</li>
+                <li>DFS (Depth First Search)</li>
+                <li>BFS (Breadth First Search)</li>
+                <li>Connected Components</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>🛣️ Graph Problems</h4>
+              <ul>
+                <li>Cycle Detection</li>
+                <li>Topological Sort</li>
+                <li>Shortest Path (Dijkstra)</li>
+                <li>Bipartite Check</li>
+                <li>Number of Islands</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (40 problems)</h4>
+            <div class="problem-count">20 DFS/BFS</div>
+            <div class="problem-count">20 Advanced</div>
+          </div>
+        </div>
+
+        <!-- Week 11 -->
+        <div class="week">
+          <h3>📅 Week 11: Greedy & Two Pointers</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>💚 Greedy Algorithms</h4>
+              <ul>
+                <li>Activity Selection</li>
+                <li>Fractional Knapsack</li>
+                <li>Job Sequencing</li>
+                <li>Huffman Coding</li>
+                <li>Minimum Platforms</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>👉👈 Two Pointers</h4>
+              <ul>
+                <li>Two Sum Variants</li>
+                <li>Container With Water</li>
+                <li>3Sum Problem</li>
+                <li>Trapping Rain Water</li>
+                <li>Remove Duplicates</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (30 problems)</h4>
+            <p>
+              <strong>Focus:</strong> Pattern recognition in greedy problems
+            </p>
+          </div>
+        </div>
+
+        <!-- Week 12 -->
+        <div class="week">
+          <h3>📅 Week 12: Contest Practice & Revision</h3>
+
+          <div class="topics">
+            <div class="topic-card">
+              <h4>🏆 Contest Strategy</h4>
+              <ul>
+                <li>Virtual Contests (Daily)</li>
+                <li>Speed Programming</li>
+                <li>Debugging Techniques</li>
+                <li>Time Management</li>
+                <li>Edge Cases Handling</li>
+              </ul>
+            </div>
+
+            <div class="topic-card">
+              <h4>📝 Revision Topics</h4>
+              <ul>
+                <li>All DS Implementations</li>
+                <li>Important Algorithms</li>
+                <li>Template Creation</li>
+                <li>Common Patterns</li>
+                <li>Previous Mistakes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="practice-section">
+            <h4>💻 Practice (40 problems)</h4>
+            <p><strong>Focus:</strong> Mixed problems + Virtual contests</p>
+          </div>
+        </div>
+
+        <div class="contest-prep">
+          <h3>🏆 Contest Participation</h3>
+          <p><strong>Weekly:</strong> 2-3 contests participate karo</p>
+          <div style="margin-top: 15px">
+            <span class="platform">Codeforces</span>
+            <span class="platform">AtCoder</span>
+            <span class="platform">CodeChef</span>
+            <span class="platform">LeetCode Weekly</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAILY SCHEDULE -->
+      <div class="tips">
+        <h3>⏰ Daily Practice Schedule (3-4 hours)</h3>
+        <div class="daily-schedule">
+          <div class="schedule-item">
+            <strong>2 Hours</strong>
+            <p>Problem Solving</p>
+          </div>
+          <div class="schedule-item">
+            <strong>30 Min</strong>
+            <p>Upsolving + Debugging</p>
+          </div>
+          <div class="schedule-item">
+            <strong>30 Min</strong>
+            <p>Review & Notes</p>
+          </div>
+        </div>
+
+        <ul>
+          <li>
+            <strong>Morning:</strong> Nayi concept seekho (videos/articles)
+          </li>
+          <li>
+            <strong>Afternoon:</strong> Problems solve karo (focused practice)
+          </li>
+          <li><strong>Evening:</strong> Contest practice ya hard problems</li>
+          <li>
+            <strong>Night:</strong> Upsolving - jo problems nahi solve hue unko
+            dekho
+          </li>
+          <li><strong>Weekend:</strong> Virtual contests + revision</li>
+        </ul>
+      </div>
+
+      <!-- IMPORTANT TIPS -->
+      <div class="tips">
+        <h3>💡 Pro Tips for Success</h3>
+        <ul>
+          <li>
+            <strong>Consistency > Intensity:</strong> Daily 3 hours >> Weekly 20
+            hours
+          </li>
+          <li>
+            <strong>Upsolve Everything:</strong> Jo problems nahi solve kar
+            paaye, baad mein zaroor karo
+          </li>
+          <li>
+            <strong>Don't Copy Code:</strong> Solutions dekhna thik hai, but
+            khud se implement karo
+          </li>
+          <li>
+            <strong>Time Yourself:</strong> Har problem ke liye time limit set
+            karo
+          </li>
+          <li>
+            <strong>Make Notes:</strong> Important patterns aur templates note
+            karo
+          </li>
+          <li>
+            <strong>Participate in Contests:</strong> Real pressure mein
+            practice hoti hai
+          </li>
+          <li>
+            <strong>Learn from Editorials:</strong> Contest ke baad editorial
+            zaroor padho
+          </li>
+          <li>
+            <strong>Join Communities:</strong> Discord/Telegram CP groups mein
+            active raho
+          </li>
+          <li>
+            <strong>Track Progress:</strong> Apne solved problems ka record
+            rakho
+          </li>
+          <li>
+            <strong>Stay Motivated:</strong> Progress slow ho to bhi consistent
+            raho
+          </li>
+        </ul>
+      </div>
+
+      <!-- PLATFORMS -->
+      <div class="resources">
+        <h4>🌐 Best Platforms for Practice</h4>
+        <div style="margin-top: 15px">
+          <div style="margin: 10px 0">
+            <strong>For Contests:</strong><br />
+            <span class="platform">Codeforces</span>
+            <span class="platform">AtCoder</span>
+            <span class="platform">CodeChef</span>
+            <span class="platform">LeetCode Contest</span>
+          </div>
+          <div style="margin: 10px 0">
+            <strong>For Practice:</strong><br />
+            <span class="platform">LeetCode</span>
+            <span class="platform">CSES Problem Set</span>
+            <span class="platform">AtCoder Problems</span>
+            <span class="platform">GeeksforGeeks</span>
+          </div>
+          <div style="margin: 10px 0">
+            <strong>For Learning:</strong><br />
+            <span class="platform">CP Algorithms</span>
+            <span class="platform">Striver's Sheet</span>
+            <span class="platform">TakeUforward</span>
+            <span class="platform">Errichto YouTube</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROBLEM COUNT TRACKER -->
+      <div class="progress-tracker">
+        <h3 style="color: #667eea; margin-bottom: 20px">
+          📊 Monthly Problem Count Targets
+        </h3>
+
+        <div style="margin: 15px 0">
+          <strong style="color: #764ba2">Month 1: Foundation</strong>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%">60-80 Problems</div>
+          </div>
+        </div>
+
+        <div style="margin: 15px 0">
+          <strong style="color: #764ba2">Month 2: Intermediate</strong>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%">
+              100-120 Problems
+            </div>
+          </div>
+        </div>
+
+        <div style="margin: 15px 0">
+          <strong style="color: #764ba2">Month 3: Advanced</strong>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%">
+              120-150 Problems
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            color: #667eea;
+          "
+        >
+          <strong>🎯 Total Target: 300-350 Problems in 3 Months</strong>
+        </div>
+      </div>
+
+      <!-- TOPIC WISE BREAKDOWN -->
+      <div class="tips">
+        <h3>📋 Topic-wise Problem Distribution</h3>
+        <div class="daily-schedule">
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            "
+          >
+            <strong>Arrays & Strings</strong>
+            <p>60 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            "
+          >
+            <strong>Recursion & DP</strong>
+            <p>50 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            "
+          >
+            <strong>Trees & Graphs</strong>
+            <p>75 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            "
+          >
+            <strong>Stack & Queue</strong>
+            <p>35 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            "
+          >
+            <strong>Linked List</strong>
+            <p>30 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            "
+          >
+            <strong>Hashing & Maps</strong>
+            <p>30 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+              color: #333;
+            "
+          >
+            <strong>Sorting & Searching</strong>
+            <p>25 problems</p>
+          </div>
+          <div
+            class="schedule-item"
+            style="
+              background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+              color: #333;
+            "
+          >
+            <strong>Greedy & Others</strong>
+            <p>45 problems</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIFFICULTY BREAKDOWN -->
+      <div class="tips" style="background: #fce4ec; border-color: #f06292">
+        <h3 style="color: #c2185b">🎚️ Difficulty Level Breakdown</h3>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              padding: 20px;
+              background: white;
+              border-radius: 10px;
+            "
+          >
+            <div style="font-size: 3em; margin-bottom: 10px">😊</div>
+            <strong style="color: #2e7d32; font-size: 1.3em">Easy</strong>
+            <p
+              style="
+                margin-top: 10px;
+                font-size: 1.8em;
+                font-weight: bold;
+                color: #2e7d32;
+              "
+            >
+              100-120
+            </p>
+            <p style="color: #666">Month 1 focus</p>
+          </div>
+          <div
+            style="
+              text-align: center;
+              padding: 20px;
+              background: white;
+              border-radius: 10px;
+            "
+          >
+            <div style="font-size: 3em; margin-bottom: 10px">😐</div>
+            <strong style="color: #f57f17; font-size: 1.3em">Medium</strong>
+            <p
+              style="
+                margin-top: 10px;
+                font-size: 1.8em;
+                font-weight: bold;
+                color: #f57f17;
+              "
+            >
+              150-180
+            </p>
+            <p style="color: #666">Month 2 & 3</p>
+          </div>
+          <div
+            style="
+              text-align: center;
+              padding: 20px;
+              background: white;
+              border-radius: 10px;
+            "
+          >
+            <div style="font-size: 3em; margin-bottom: 10px">😤</div>
+            <strong style="color: #c62828; font-size: 1.3em">Hard</strong>
+            <p
+              style="
+                margin-top: 10px;
+                font-size: 1.8em;
+                font-weight: bold;
+                color: #c62828;
+              "
+            >
+              30-50
+            </p>
+            <p style="color: #666">Month 3 mainly</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUAGE CHOICE -->
+      <div class="tips" style="background: #e8eaf6; border-color: #5c6bc0">
+        <h3 style="color: #3949ab">💻 Programming Language Choice</h3>
+        <ul>
+          <li>
+            <strong>C++:</strong> Sabse popular for CP (STL bahut powerful hai)
+          </li>
+          <li>
+            <strong>Python:</strong> Easy syntax but thoda slow (simple problems
+            ke liye best)
+          </li>
+          <li>
+            <strong>Java:</strong> Good choice, but syntax thoda lamba hai
+          </li>
+        </ul>
+        <div class="note" style="margin-top: 15px">
+          <strong>Recommendation:</strong> Agar possible ho to C++ seekho. CP
+          mein C++ ki demand zyada hai aur STL (Standard Template Library) bahut
+          helpful hai.
+        </div>
+      </div>
+
+      <!-- MISTAKES TO AVOID -->
+      <div class="tips" style="background: #ffebee; border-color: #e57373">
+        <h3 style="color: #c62828">❌ Common Mistakes to Avoid</h3>
+        <ul>
+          <li>
+            <strong>Tutorial Hell:</strong> Sirf videos mat dekho, practice
+            zyada karo
+          </li>
+          <li>
+            <strong>Skipping Basics:</strong> Foundation weak hai to advanced
+            samajh nahi aayega
+          </li>
+          <li>
+            <strong>Not Timing:</strong> Practice mein time limit set na karna
+          </li>
+          <li>
+            <strong>Copying Solutions:</strong> Direct code copy karne se kuch
+            nahi hoga
+          </li>
+          <li>
+            <strong>Ignoring Contests:</strong> Real contests se darna mat
+          </li>
+          <li>
+            <strong>Not Upsolving:</strong> Contest ke baad problems solve na
+            karna
+          </li>
+          <li>
+            <strong>Inconsistency:</strong> 2-3 din break lena motivation khatam
+            kar deta hai
+          </li>
+          <li>
+            <strong>Comparing:</strong> Doosron se compare mat karo, apne
+            progress par focus karo
+          </li>
+        </ul>
+      </div>
+
+      <!-- MOTIVATION SECTION -->
+      <div class="final-goal">
+        <h2>🎯 3 Months Ke Baad Aap</h2>
+        <div style="margin: 20px 0">
+          <p style="font-size: 1.3em; margin: 10px 0">
+            ✅ 300+ Problems Solved
+          </p>
+          <p style="font-size: 1.3em; margin: 10px 0">
+            ✅ Codeforces Rating: 1200-1400
+          </p>
+          <p style="font-size: 1.3em; margin: 10px 0">
+            ✅ LeetCode: 200+ Problems
+          </p>
+          <p style="font-size: 1.3em; margin: 10px 0">✅ DSA Concepts Clear</p>
+          <p style="font-size: 1.3em; margin: 10px 0">✅ Contest Ready!</p>
+        </div>
+        <div style="margin-top: 30px; font-size: 1.5em">
+          <strong
+            >"Success is the sum of small efforts repeated day in and day
+            out."</strong
+          >
+        </div>
+      </div>
+
+      <!-- FINAL TIPS -->
+      <div
+        class="tips"
+        style="
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+        "
+      >
+        <h3 style="color: white">🚀 Last Words of Wisdom</h3>
+        <ul style="font-size: 1.1em">
+          <li>
+            Consistency is the MOST important thing - Daily practice karo chahe
+            1 hour hi ho
+          </li>
+          <li>Enjoy the process - CP is a marathon, not a sprint</li>
+          <li>Join communities - Alone struggle mat karo, doosron se seekho</li>
+          <li>
+            Track your progress - Spreadsheet ya notebook mein record rakho
+          </li>
+          <li>Celebrate small wins - Har achievement matter karti hai</li>
+          <li>Never give up - Difficult lagega but worth it hai!</li>
+        </ul>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="resources">
+        <h4>🔗 Important Links & Resources</h4>
+        <div style="margin-top: 15px">
+          <p><strong>📺 YouTube Channels:</strong></p>
+          <span class="platform">Striver</span>
+          <span class="platform">take U forward</span>
+          <span class="platform">Errichto</span>
+          <span class="platform">CodeNCode</span>
+          <span class="platform">William Lin</span>
+        </div>
+        <div style="margin-top: 15px">
+          <p><strong>📖 Websites:</strong></p>
+          <span class="platform">cp-algorithms.com</span>
+          <span class="platform">usaco.guide</span>
+          <span class="platform">cses.fi</span>
+          <span class="platform">codeforces.com/blog</span>
+        </div>
+        <div style="margin-top: 15px">
+          <p><strong>📝 Practice Sheets:</strong></p>
+          <span class="platform">Striver's SDE Sheet</span>
+          <span class="platform">Love Babbar 450</span>
+          <span class="platform">Fraz Sheet</span>
+          <span class="platform">A2Z DSA Sheet</span>
+        </div>
+      </div>
+
+      <div
+        style="
+          text-align: center;
+          margin-top: 40px;
+          padding: 30px;
+          background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+          border-radius: 15px;
+          color: white;
+        "
+      >
+        <h2 style="font-size: 2.5em; margin-bottom: 15px">🎓 All the Best!</h2>
+        <p style="font-size: 1.3em">
+          Remember: Everyone starts from zero. What matters is consistency and
+          dedication!
+        </p>
+        <p style="font-size: 1.5em; margin-top: 20px; font-weight: bold">
+          Happy Coding! 💻🚀
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+">
