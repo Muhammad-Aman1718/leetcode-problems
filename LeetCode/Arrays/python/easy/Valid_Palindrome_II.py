@@ -22,18 +22,19 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
 
-        string = ""
+        def is_palindrome(sub: str) -> bool:
+            return sub == sub[::-1]
 
-        freq: dict[str, int] = {}
-        for i in s:
-            freq[i] = freq.get(i, 0) + 1
-        for i in freq:
-            if freq[i] == 1:
-                string = s.replace(i, "", 1)
-                break
-            else:
-                string = s
-        return string == string[::-1]
+        left, right = 0, len(s) - 1
+
+        while left < right:
+            if s[left] != s[right]:
+                return is_palindrome(s[left + 1 : right + 1]) or is_palindrome(
+                    s[left:right]
+                )
+            left += 1
+            right -= 1
+        return True
 
 
 obj = Solution()
