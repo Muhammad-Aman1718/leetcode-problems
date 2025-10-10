@@ -27,31 +27,17 @@
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        slow = fast = head
-
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-
-        # Step 2: reverse second half
+        curr = head
         prev = None
-        curr = slow
+        nxt = None
+
         while curr:
             nxt = curr.next
             curr.next = prev
             prev = curr
             curr = nxt
 
-        # Step 3: compare
-        left = head
-        right = prev
-        while right:
-            if left.val != right.val:
-                return False
-            left = left.next
-            right = right.next
-
-        return True
+        return prev
 
 
 obj = Solution()
