@@ -46,9 +46,7 @@ class Solution:
                 return False
             left = left.next
             right = right.next
-
         return True
-
 
 obj = Solution()
 head = [1, 2, 2, 1]
