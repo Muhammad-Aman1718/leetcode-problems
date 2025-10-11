@@ -37,8 +37,18 @@ node2.next = node3
 node3.next = node4
 node4.next = node5
 
-head = node1
-curr = head
+# Linked List 2
+
+node10 = Node(1)
+node11 = Node(2)
+node12 = Node(3)
+node13 = Node(4)
+node14 = Node(5)
+
+node10.next = node11
+node11.next = node12
+node12.next = node13
+node13.next = node14
 
 
 def printNode(head: Node):
@@ -64,7 +74,7 @@ def printNode(head: Node):
 #     prev = curr
 #     curr = nxt
 
-# printNode(prev)
+# printNode(head)
 
 # elements = []
 # count = 0
@@ -76,6 +86,26 @@ def printNode(head: Node):
 # print(elements)
 # print(count)
 
+head1 = node1
+head10 = node10
+curr10 = head10
+curr1 = head1
+# printNode(head)
+newNodeList = Node(0)
+dummy = newNodeList
+tail = dummy
+while curr1 and curr10:
+    if curr1.data <= curr10.data:
+        tail.next = curr1
+        curr1 = curr1.next
+    else:
+        tail.next = curr10
+        curr10 = curr10.next
+    tail = tail.next
 
+if node1:
+    tail.next = curr1
+else:
+    tail.next = curr10
 
-
+printNode(dummy.next)
