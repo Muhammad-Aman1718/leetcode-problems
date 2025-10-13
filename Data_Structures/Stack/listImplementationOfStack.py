@@ -36,6 +36,9 @@ class Stack:
             return True
         return False
 
+    def size(self):
+        return len(self.data)
+
     def printList(self):
         print(self.data)
 
@@ -58,3 +61,4 @@ obj.printList()
 # print(obj.getElement())
 print(obj.isEmpty())
 print(obj.isFull())
+print(obj.size())
