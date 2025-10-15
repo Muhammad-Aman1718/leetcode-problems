@@ -24,7 +24,6 @@ class Solution:
                 return i
             i += 1
 
-
 obj = Solution()
 n = 5
 print(obj.smallestEvenMultiple(n))
