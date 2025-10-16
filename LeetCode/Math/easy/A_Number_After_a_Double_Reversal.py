@@ -32,7 +32,6 @@ class Solution:
         if len(reverseNum) > 1:
             if int(reverseNum[0]) == 0:
                 return False
-
         return True
 
 
