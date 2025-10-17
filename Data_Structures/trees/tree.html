@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree Types Hierarchy</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        text-align: center;
+        color: #667eea;
+        margin-bottom: 50px;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Tree Structure */
+      .tree {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+      }
+
+      .tree ul {
+        padding-top: 20px;
+        position: relative;
+        transition: all 0.5s;
+      }
+
+      .tree li {
+        float: left;
+        text-align: center;
+        list-style-type: none;
+        position: relative;
+        padding: 20px 5px 0 5px;
+        transition: all 0.5s;
+      }
+
+      /* Connecting lines */
+      .tree li::before,
+      .tree li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+        border-top: 3px solid #764ba2;
+        width: 50%;
+        height: 20px;
+      }
+
+      .tree li::after {
+        right: auto;
+        left: 50%;
+        border-left: 3px solid #764ba2;
+      }
+
+      .tree li:only-child::after,
+      .tree li:only-child::before {
+        display: none;
+      }
+
+      .tree li:only-child {
+        padding-top: 0;
+      }
+
+      .tree li:first-child::before,
+      .tree li:last-child::after {
+        border: 0 none;
+      }
+
+      .tree li:last-child::before {
+        border-right: 3px solid #764ba2;
+        border-radius: 0 5px 0 0;
+      }
+
+      .tree li:first-child::after {
+        border-radius: 5px 0 0 0;
+      }
+
+      /* Vertical line from parent to children */
+      .tree ul ul::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border-left: 3px solid #764ba2;
+        width: 0;
+        height: 20px;
+      }
+
+      /* Node styles */
+      .node {
+        border: 3px solid #764ba2;
+        padding: 15px 25px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        display: inline-block;
+        border-radius: 10px;
+        transition: all 0.3s;
+        cursor: pointer;
+        min-width: 180px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Root node */
+      .level-0 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-size: 1.5em;
+        padding: 20px 40px;
+      }
+
+      /* Level 1 - Main Categories */
+      .level-1 {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        border-color: #f5576c;
+        font-size: 1.3em;
+      }
+
+      /* Level 2 - Sub Categories */
+      .level-2 {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        border-color: #00f2fe;
+        font-size: 1.1em;
+      }
+
+      /* Level 3 - Types */
+      .level-3 {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        border-color: #38f9d7;
+        font-size: 1em;
+        padding: 12px 20px;
+        min-width: 150px;
+      }
+
+      /* Level 4 - Subtypes */
+      .level-4 {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        border-color: #fee140;
+        font-size: 0.9em;
+        padding: 10px 15px;
+        min-width: 120px;
+      }
+
+      .node:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Description text */
+      .desc {
+        font-size: 0.75em;
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 5px;
+        font-weight: normal;
+      }
+
+      /* Legend */
+      .legend {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        margin-top: 40px;
+        border-left: 5px solid #667eea;
+      }
+
+      .legend h3 {
+        color: #667eea;
+        margin-bottom: 20px;
+      }
+
+      .legend-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .legend-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        border: 2px solid #333;
+      }
+
+      .legend-text {
+        color: #555;
+        font-weight: 500;
+      }
+
+      @media (max-width: 1200px) {
+        .container {
+          padding: 20px;
+        }
+
+        .node {
+          min-width: 140px;
+          padding: 12px 18px;
+          font-size: 0.9em;
+        }
+
+        h1 {
+          font-size: 1.8em;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .node {
+          min-width: 100px;
+          padding: 10px 12px;
+          font-size: 0.8em;
+        }
+
+        .tree li {
+          padding: 15px 3px 0 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🌳 Complete Tree Types Hierarchy - Proper Structure</h1>
+
+      <div class="tree">
+        <ul>
+          <!-- ROOT: TREE -->
+          <li>
+            <div class="node level-0">
+              TREE
+              <div class="desc">Data Structure</div>
+            </div>
+            <ul>
+              <!-- LEVEL 1: General Tree -->
+              <li>
+                <div class="node level-1">
+                  GENERAL TREE
+                  <div class="desc">Unlimited Children</div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node level-3">
+                      N-ary Tree
+                      <div class="desc">Max N children</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-3">
+                      Trie
+                      <div class="desc">Prefix Tree</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-3">
+                      Suffix Tree
+                      <div class="desc">Pattern Matching</div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- LEVEL 1: Binary Tree -->
+              <li>
+                <div class="node level-1">
+                  BINARY TREE
+                  <div class="desc">Max 2 Children</div>
+                </div>
+                <ul>
+                  <!-- Binary Tree Types -->
+                  <li>
+                    <div class="node level-2">
+                      Full Binary Tree
+                      <div class="desc">0 or 2 children</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Complete Binary Tree
+                      <div class="desc">Left filled</div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="node level-3">Heap</div>
+                        <ul>
+                          <li>
+                            <div class="node level-4">Max Heap</div>
+                          </li>
+                          <li>
+                            <div class="node level-4">Min Heap</div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Perfect Binary Tree
+                      <div class="desc">All levels full</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Balanced Binary Tree
+                      <div class="desc">Height diff ≤ 1</div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="node level-3">
+                          AVL Tree
+                          <div class="desc">Self-balancing BST</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Skewed Binary Tree
+                      <div class="desc">One side only</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Binary Search Tree
+                      <div class="desc">Left < Root < Right</div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="node level-3">
+                          Red-Black Tree
+                          <div class="desc">Color balanced</div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="node level-3">
+                          Splay Tree
+                          <div class="desc">Self-adjusting</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Segment Tree
+                      <div class="desc">Range queries</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      Fenwick Tree
+                      <div class="desc">Binary Indexed</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-2">
+                      K-D Tree
+                      <div class="desc">Multi-dimensional</div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- LEVEL 1: M-way Trees -->
+              <li>
+                <div class="node level-1">
+                  M-WAY TREE
+                  <div class="desc">Multiple Keys per Node</div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node level-3">
+                      B-Tree
+                      <div class="desc">Database storage</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-3">
+                      B+ Tree
+                      <div class="desc">Data in leaves</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node level-3">
+                      B* Tree
+                      <div class="desc">More filled nodes</div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend">
+        <h3>📊 Color Code Legend - Hierarchy Levels:</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div
+              class="legend-box"
+              style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              "
+            ></div>
+            <div class="legend-text"><strong>Purple:</strong> Root (TREE)</div>
+          </div>
+          <div class="legend-item">
+            <div
+              class="legend-box"
+              style="
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              "
+            ></div>
+            <div class="legend-text">
+              <strong>Pink:</strong> Main Categories
+            </div>
+          </div>
+          <div class="legend-item">
+            <div
+              class="legend-box"
+              style="
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              "
+            ></div>
+            <div class="legend-text">
+              <strong>Blue:</strong> Binary Tree Types
+            </div>
+          </div>
+          <div class="legend-item">
+            <div
+              class="legend-box"
+              style="
+                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+              "
+            ></div>
+            <div class="legend-text">
+              <strong>Green:</strong> Specific Trees
+            </div>
+          </div>
+          <div class="legend-item">
+            <div
+              class="legend-box"
+              style="
+                background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+              "
+            ></div>
+            <div class="legend-text"><strong>Orange:</strong> Subtypes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend" style="margin-top: 20px; border-left-color: #43e97b">
+        <h3>🎯 Key Relationships (Parent → Child):</h3>
+        <div style="color: #555; line-height: 2">
+          <strong>TREE</strong> → General Tree, Binary Tree, M-way Tree<br />
+          <strong>General Tree</strong> → N-ary Tree, Trie, Suffix Tree<br />
+          <strong>Binary Tree</strong> → Full, Complete, Perfect, Balanced,
+          Skewed, BST, Segment, Fenwick, K-D<br />
+          <strong>Complete Binary Tree</strong> → Heap (Min Heap, Max Heap)<br />
+          <strong>Balanced Binary Tree</strong> → AVL Tree<br />
+          <strong>Binary Search Tree</strong> → Red-Black Tree, Splay Tree<br />
+          <strong>M-way Tree</strong> → B-Tree, B+ Tree, B* Tree<br />
+        </div>
+      </div>
+
+      <div class="legend" style="margin-top: 20px; border-left-color: #f5576c">
+        <h3>💡 Important Points:</h3>
+        <div style="color: #555; line-height: 2">
+          ✓ <strong>Heap</strong> ek special case hai
+          <strong>Complete Binary Tree</strong> ka<br />
+          ✓ <strong>AVL Tree</strong> ek type hai
+          <strong>Balanced Binary Tree</strong> ka jo BST bhi hai<br />
+          ✓ <strong>Red-Black Tree</strong> direct <strong>BST</strong> ki type
+          hai<br />
+          ✓ <strong>B-Trees</strong> bilkul alag category hai (M-way Trees)<br />
+          ✓ <strong>Trie</strong> General Tree ki category mein aata hai<br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
