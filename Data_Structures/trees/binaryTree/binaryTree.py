@@ -28,7 +28,6 @@
 # 6. Skewed Tree: All nodes have only one child, either all left or all right.
 
 
-
 class TreeNode:
     def __init__(self, data: int) -> None:
         self.data = data
@@ -87,3 +86,4 @@ skewed_root = TreeNode(1)
 skewed_root.right = TreeNode(2)
 skewed_root.right.right = TreeNode(3)
 skewed_root.right.right.right = TreeNode(4)
+
