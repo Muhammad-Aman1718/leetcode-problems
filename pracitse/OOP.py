@@ -126,4 +126,9 @@ a = 10
 b = 4
 
 # Print bitwise AND operation
-print("a & b =", a & b)
+# print("a & b =", a & b)
+# c = -12
+# print(~c)
+
+
+print(5 << 2 )
