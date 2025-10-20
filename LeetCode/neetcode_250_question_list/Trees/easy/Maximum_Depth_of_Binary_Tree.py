@@ -16,6 +16,7 @@
 # Input: root = [1,null,2]
 # Output: 2
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val: int) -> None:
