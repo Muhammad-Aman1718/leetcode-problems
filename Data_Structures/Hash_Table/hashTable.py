@@ -1,4 +1,4 @@
-# // Set and Objects is use hashing in the background
+#  Set and Objects is use hashing in the background
 #  Hash Table is an data structure that use hash function to map keys to buckets or slots
 #  to store values
 
@@ -104,4 +104,6 @@ print(sets)
 
 #  Built-in Objects
 
-objects = {}
+dictionary: dict[str, str] = {}
+dictionary["name"] = "ali"
+print(dictionary)
