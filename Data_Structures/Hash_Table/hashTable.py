@@ -1,3 +1,9 @@
+# // Set and Objects is use hashing in the background
+#  Hash Table is an data structure that use hash function to map keys to buckets or slots
+#  to store values
+
+
+#  This is user defined sets and objects
 class MyHashSet:
     def __init__(self) -> None:
         self.size = 100
@@ -18,20 +24,20 @@ class MyHashSet:
 
     #  Store Data in the form of tuples
 
-    def put(self, key: int, value: int) -> None:
-        idx = key % self.size
-        for i, (k, v) in enumerate(self.table[idx]):
-            if k == key:
-                self.table[idx][i] = (key, value)
-                return
-        self.table[idx].append((key, value))
+    # def put(self, key: int, value: int) -> None:
+    #     idx = key % self.size
+    #     for i, (k, v) in enumerate(self.table[idx]):
+    #         if k == key:
+    #             self.table[idx][i] = (key, value)
+    #             return
+    #     self.table[idx].append((key, value))
 
-    def get(self, key: int) -> int:
-        idx = key % self.size
-        for k, v in self.table[idx]:
-            if k == key:
-                return v
-        return -1
+    # def get(self, key: int) -> int:
+    #     idx = key % self.size
+    #     for k, v in self.table[idx]:
+    #         if k == key:
+    #             return v
+    #     return -1
 
 
 obj = MyHashSet()
@@ -63,38 +69,6 @@ obj = MyHashSet()
 # obj.add(19876)
 # obj.add(1876)
 # obj.add(1654)
-# obj.add(187453)
-# obj.add(1876)
-# obj.add(1765)
-# obj.add(1654)
-# obj.add(1876)
-# obj.add(15)
-# obj.add(165)
-# obj.add(187)
-# obj.add(1874)
-# obj.add(147)
-# obj.add(1432)
-# obj.add(1453)
-# obj.add(1443)
-# obj.add(1465)
-# obj.add(1543)
-# obj.add(1543)
-# obj.add(164)
-# obj.add(1654)
-# obj.add(1464)
-# obj.add(165)
-# obj.add(1654)
-# obj.add(1654)
-# obj.add(187)
-# obj.add(1765)
-# obj.add(145)
-# obj.add(4324)
-# obj.add(15463)
-# obj.add(1476)
-# obj.add(132)
-# obj.add(1432)
-# obj.add(1543)
-# obj.add(1423)
 # obj.add(124)
 # obj.add(17)
 # obj.contains(1432)
@@ -105,15 +79,30 @@ obj = MyHashSet()
 # obj = MyHashSet()
 
 
-obj.put(2, 479)
-obj.put(232, 476)
-obj.put(23, 445432)
-obj.put(223454, 4432)
-obj.put(2234544, 4432)
-obj.put(223654, 4432)
-obj.put(2265, 4432)
-obj.put(227654, 443)
-obj.put(227654, 442)
+# obj.put(2, 479)
+# obj.put(232, 476)
+# obj.put(23, 445432)
+# obj.put(223454, 4432)
+# obj.put(2234544, 4432)
+# obj.put(223654, 4432)
+# obj.put(2265, 4432)
+# obj.put(227654, 443)
+# obj.put(227654, 442)
 
-print(obj.get(2234544))
-print(obj.table)
+# print(obj.get(2234544))
+# print(obj.table)
+
+
+#   Built-in sets
+sets: set[int] = set()
+sets.add(34)
+sets.add(43434)
+sets.add(4)
+sets.add(544)
+sets.add(45483)
+print(sets)
+
+#  Built-in Objects
+
+objects = {}
+objects.
