@@ -48,9 +48,10 @@ sets.add(324);
 sets.add(432);
 sets.add(324234);
 sets.add(543);
+sets.add(4398);
+console.log(sets.has(3));
 console.log(sets);
 
 const objects = {};
-// objects.add(32);
 objects[32] = 35432;
 console.log(objects);
