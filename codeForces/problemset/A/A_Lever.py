@@ -87,6 +87,7 @@
 # . Since it fails to decrease an element, its iteration ends. Therefore, the answer is 3
 # .
 
+
 # In the second sample case, the Lever does nothing in its first iteration, and thus it does only one iteration.
 
 
