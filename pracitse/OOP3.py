@@ -8,7 +8,9 @@ def get_first_element(arr: list[int]):
 numbers = [10, 20, 30, 40]
 print(get_first_element(numbers))
 
-#upper bond O(n),O(n)
+
+
+#tight bond O(1),Θ(n)
 # 🧩 Example 2:
 def check_even(num: int):
     if num % 2 == 0:
@@ -16,13 +18,14 @@ def check_even(num: int):
     else:
         return False
 
-# tight bond O(1),Θ(n)
 # 🧪 Mock input:
 print(check_even(42))
 print(check_even(17))
 
 
-#lower bond o(log(n)),Ω(n)
+
+
+#tight bond O(1),Θ(n)
 # 🧩 Example 3:
 def swap(a: int, b: int):
     temp = a
@@ -30,28 +33,33 @@ def swap(a: int, b: int):
     b = temp
     return a, b
 
-#tight bond o(1),Θ(n)
 # 🧪 Mock input:
 x, y = 5, 9
 print(swap(x, y))
+
+
 
 #tight bond o(1),Θ(n)
 # 🧩 Example 4:
 def add_two_numbers(a: int, b: int):
     return a + b
 
-#tight bond o(1),Θ(n)
 # 🧪 Mock input:
 print(add_two_numbers(15, 25))
 
-#lower bond o(log(n)),Ω(n)
+
+
+
+# upper bond o(n)
 # 🧩 Example 5:
 def find_max_of_three(a: int, b: int, c: int):
     return max(a, b, c)
 
-#lower bond  o(log(n)),Ω(n)
 # 🧪 Mock input:
 print(find_max_of_three(12, 7, 19))
+
+
+
 
 # upper bond o(n)
 # 🧩 Example 6:
@@ -59,10 +67,13 @@ def print_elements(arr: list[int]):
     for item in arr:
         print(item)
 
-# upper bond o(n)
+
 # 🧪 Mock input:
 data = [1, 2, 3, 4, 5]
 print_elements(data)
+
+
+
 
 # upper bond o(n)
 
@@ -73,10 +84,11 @@ def find_sum(arr: list[int]):
         total += num
     return total
 
-# upper bond o(n)
 # 🧪 Mock input:
 numbers = [5, 10, 15, 20]
 print(find_sum(numbers))
+
+
 
 #upper bond o(n)
 # 🧩 Example 8:
@@ -86,11 +98,12 @@ def find_element(arr: list[int], target: int):
             return True
     return False
 
-# upper bond o(n)
 # 🧪 Mock input:
 arr = [3, 6, 9, 12, 15]
 print(find_element(arr, 9))
 print(find_element(arr, 20))
+
+
 
 #upper bond o(n)
 # 🧩 Example 9:
@@ -100,10 +113,11 @@ def double_each(arr: list[int]):
         result.append(num * 2)
     return result
 
-#upper bond o(n)
 # 🧪 Mock input:
 data = [1, 4, 7, 10]
 print(double_each(data))
+
+
 
 #upper bond o(n)
 # 🧩 Example 10:
@@ -114,7 +128,6 @@ def count_positives(arr: list[int]):
             count += 1
     return count
 
-# upper bond o(n)
 # 🧪 Mock input:
 nums = [-5, 3, 0, 7, -2, 9]
 print(count_positives(nums))
