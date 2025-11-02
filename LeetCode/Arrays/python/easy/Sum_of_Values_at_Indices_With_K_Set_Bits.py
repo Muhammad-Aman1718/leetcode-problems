@@ -38,9 +38,9 @@ class Solution:
     def sumIndicesWithKSetBits(self, nums: list[int], k: int) -> int:
 
         binaryForm: list[str] = []
+        idx: list[int] = []
         for i in range(len(nums)):
             binaryForm.append(bin(i))
-        idx: list[int] = []
         for x in range(len(binaryForm)):
             countBit = 0
             for y in binaryForm[x]:
