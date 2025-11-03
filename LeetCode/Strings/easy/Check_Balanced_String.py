@@ -26,7 +26,6 @@ class Solution:
 
         evenSum = 0
         oddSum = 0
-
         for i in range(len(num)):
             if i % 2 == 0:
                 evenSum += int(num[i])
