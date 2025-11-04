@@ -25,12 +25,20 @@
 # Then we apply the operation on s[1], and s becomes "".
 
 
-
 class Solution:
     def clearDigits(self, s: str) -> str:
-        
-        
-        
+
+        ans: list[str] = []
+        for c in s:
+            if c.isdigit():
+                if ans:
+                    ans.pop()
+            else:
+                ans.append(c)
+        return "".join(ans)
+
+
 obj = Solution()
-s = "cb34"
+# s = "cb34"
+s = "abc"
 print(obj.clearDigits(s))
