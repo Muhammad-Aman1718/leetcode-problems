@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ur">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL vs NoSQL Database Guide</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 40px;
+        font-size: 2.5em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        border-bottom: 3px solid #667eea;
+      }
+
+      .tab {
+        padding: 15px 30px;
+        background: #f8f9fa;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: bold;
+        border-radius: 10px 10px 0 0;
+        transition: all 0.3s;
+      }
+
+      .tab:hover {
+        background: #e9ecef;
+      }
+
+      .tab.active {
+        background: #667eea;
+        color: white;
+      }
+
+      .content {
+        display: none;
+      }
+
+      .content.active {
+        display: block;
+        animation: fadeIn 0.5s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .db-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 30px;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .db-card h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 3px solid white;
+        padding-bottom: 10px;
+      }
+
+      .db-card h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 1.3em;
+        color: #ffd700;
+      }
+
+      .db-card ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .db-card li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .db-card li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #ffd700;
+        font-weight: bold;
+      }
+
+      .diagram-section {
+        margin: 40px 0;
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+      }
+
+      .diagram-section h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 1.8em;
+      }
+
+      .sql-diagram,
+      .nosql-diagram {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .table-visual {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        background: #667eea;
+        border: 3px solid #667eea;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 20px 0;
+      }
+
+      .table-cell {
+        background: white;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .table-header {
+        background: #667eea;
+        color: white;
+        font-weight: bold;
+        padding: 15px;
+      }
+
+      .json-visual {
+        background: #2c3e50;
+        color: #00ff00;
+        padding: 20px;
+        border-radius: 10px;
+        font-family: "Courier New", monospace;
+        margin: 20px 0;
+        white-space: pre-wrap;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .example-box {
+        background: #e3f2fd;
+        padding: 20px;
+        border-left: 5px solid #2196f3;
+        margin: 20px 0;
+        border-radius: 5px;
+      }
+
+      .example-box h3 {
+        color: #1976d2;
+        margin-bottom: 10px;
+      }
+
+      .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .pros,
+      .cons {
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .pros {
+        background: #d4edda;
+        border: 2px solid #28a745;
+      }
+
+      .cons {
+        background: #f8d7da;
+        border: 2px solid #dc3545;
+      }
+
+      .pros h3 {
+        color: #28a745;
+      }
+
+      .cons h3 {
+        color: #dc3545;
+      }
+
+      .use-cases {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .use-case {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #667eea;
+      }
+
+      .use-case h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+      }
+
+      code {
+        background: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        color: #e83e8c;
+      }
+
+      .highlight {
+        background: #fff3cd;
+        padding: 15px;
+        border-left: 4px solid #ffc107;
+        margin: 20px 0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🗄️ SQL vs NoSQL Databases</h1>
+
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('overview')">
+          Overview
+        </button>
+        <button class="tab" onclick="showTab('sql')">SQL Database</button>
+        <button class="tab" onclick="showTab('nosql')">NoSQL Database</button>
+        <button class="tab" onclick="showTab('comparison')">Comparison</button>
+      </div>
+
+      <!-- Overview Tab -->
+      <div id="overview" class="content active">
+        <div class="comparison">
+          <div class="db-card">
+            <h2>📊 SQL Database</h2>
+            <h3>Kya hai?</h3>
+            <p>
+              SQL (Structured Query Language) databases
+              <strong>relational databases</strong> hain jo data ko
+              <strong>tables</strong> mein store karte hain.
+            </p>
+
+            <h3>Main Features:</h3>
+            <ul>
+              <li>Fixed schema (pehle se defined structure)</li>
+              <li>Tables mein rows aur columns</li>
+              <li>
+                ACID properties (Atomicity, Consistency, Isolation, Durability)
+              </li>
+              <li>Relationships between tables</li>
+              <li>Powerful joins aur complex queries</li>
+            </ul>
+
+            <h3>Examples:</h3>
+            <ul>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>Oracle</li>
+              <li>Microsoft SQL Server</li>
+              <li>SQLite</li>
+            </ul>
+          </div>
+
+          <div class="db-card">
+            <h2>🔥 NoSQL Database</h2>
+            <h3>Kya hai?</h3>
+            <p>
+              NoSQL (Not Only SQL) databases
+              <strong>non-relational databases</strong> hain jo flexible
+              structure use karte hain.
+            </p>
+
+            <h3>Main Features:</h3>
+            <ul>
+              <li>Flexible schema (dynamic structure)</li>
+              <li>Documents, key-value pairs, graphs ya columns</li>
+              <li>Horizontal scaling (easy to expand)</li>
+              <li>High performance for large data</li>
+              <li>JSON/BSON format</li>
+            </ul>
+
+            <h3>Examples:</h3>
+            <ul>
+              <li>MongoDB (Document)</li>
+              <li>Redis (Key-Value)</li>
+              <li>Cassandra (Column-family)</li>
+              <li>Neo4j (Graph)</li>
+              <li>DynamoDB (Key-Value)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SQL Tab -->
+      <div id="sql" class="content">
+        <div class="diagram-section">
+          <h2>SQL Database Structure</h2>
+
+          <div class="sql-diagram">
+            <h3 style="color: #667eea; text-align: center">Users Table</h3>
+            <div class="table-visual">
+              <div class="table-header">ID</div>
+              <div class="table-header">Name</div>
+              <div class="table-header">Email</div>
+              <div class="table-header">Age</div>
+
+              <div class="table-cell">1</div>
+              <div class="table-cell">Ahmad</div>
+              <div class="table-cell">ahmad@email.com</div>
+              <div class="table-cell">25</div>
+
+              <div class="table-cell">2</div>
+              <div class="table-cell">Fatima</div>
+              <div class="table-cell">fatima@email.com</div>
+              <div class="table-cell">28</div>
+
+              <div class="table-cell">3</div>
+              <div class="table-cell">Ali</div>
+              <div class="table-cell">ali@email.com</div>
+              <div class="table-cell">30</div>
+            </div>
+          </div>
+
+          <div class="example-box">
+            <h3>SQL Query Examples:</h3>
+            <p><strong>Data Insert karna:</strong></p>
+            <code
+              >INSERT INTO users (name, email, age) VALUES ('Ahmad',
+              'ahmad@email.com', 25);</code
+            >
+
+            <p style="margin-top: 15px"><strong>Data Read karna:</strong></p>
+            <code>SELECT * FROM users WHERE age > 25;</code>
+
+            <p style="margin-top: 15px"><strong>Data Update karna:</strong></p>
+            <code>UPDATE users SET age = 26 WHERE id = 1;</code>
+
+            <p style="margin-top: 15px"><strong>Data Delete karna:</strong></p>
+            <code>DELETE FROM users WHERE id = 3;</code>
+          </div>
+
+          <div class="pros-cons">
+            <div class="pros">
+              <h3>✅ Advantages</h3>
+              <ul>
+                <li>Data consistency guaranteed</li>
+                <li>Complex queries easily possible</li>
+                <li>ACID compliance</li>
+                <li>Data integrity maintained</li>
+                <li>Mature aur well-documented</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h3>❌ Disadvantages</h3>
+              <ul>
+                <li>Schema change mushkil</li>
+                <li>Vertical scaling expensive</li>
+                <li>Large data pe slow</li>
+                <li>Rigid structure</li>
+                <li>Complex setup for distributed systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NoSQL Tab -->
+      <div id="nosql" class="content">
+        <div class="diagram-section">
+          <h2>NoSQL Database Structure (MongoDB Example)</h2>
+
+          <div class="nosql-diagram">
+            <h3 style="color: #667eea; text-align: center">
+              Users Collection (Document Format)
+            </h3>
+            <div class="json-visual">
+              { "_id": "507f1f77bcf86cd799439011", "name": "Ahmad", "email":
+              "ahmad@email.com", "age": 25, "address": { "city": "Faisalabad",
+              "country": "Pakistan" }, "hobbies": ["cricket", "coding",
+              "reading"] } { "_id": "507f1f77bcf86cd799439012", "name":
+              "Fatima", "email": "fatima@email.com", "age": 28, "skills":
+              ["JavaScript", "Python", "React"], "projects": [ { "title":
+              "E-commerce Site", "year": 2024 } ] }
+            </div>
+          </div>
+
+          <div class="example-box">
+            <h3>MongoDB Query Examples:</h3>
+            <p><strong>Data Insert karna:</strong></p>
+            <code
+              >db.users.insertOne({name: "Ahmad", email: "ahmad@email.com", age:
+              25})</code
+            >
+
+            <p style="margin-top: 15px"><strong>Data Read karna:</strong></p>
+            <code>db.users.find({age: {$gt: 25}})</code>
+
+            <p style="margin-top: 15px"><strong>Data Update karna:</strong></p>
+            <code>db.users.updateOne({name: "Ahmad"}, {$set: {age: 26}})</code>
+
+            <p style="margin-top: 15px"><strong>Data Delete karna:</strong></p>
+            <code>db.users.deleteOne({name: "Ali"})</code>
+          </div>
+
+          <div class="highlight">
+            <h3>🔑 NoSQL ke Types:</h3>
+            <p>
+              <strong>1. Document Stores:</strong> MongoDB, CouchDB - JSON/BSON
+              documents
+            </p>
+            <p>
+              <strong>2. Key-Value Stores:</strong> Redis, DynamoDB - Simple
+              key-value pairs
+            </p>
+            <p>
+              <strong>3. Column-Family:</strong> Cassandra, HBase - Wide columns
+            </p>
+            <p>
+              <strong>4. Graph Databases:</strong> Neo4j - Nodes aur
+              relationships
+            </p>
+          </div>
+
+          <div class="pros-cons">
+            <div class="pros">
+              <h3>✅ Advantages</h3>
+              <ul>
+                <li>Flexible schema - easily changeable</li>
+                <li>Horizontal scaling easy</li>
+                <li>High performance for big data</li>
+                <li>Fast read/write operations</li>
+                <li>Natural JSON format for web apps</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h3>❌ Disadvantages</h3>
+              <ul>
+                <li>Data consistency issues ho sakte hain</li>
+                <li>Complex transactions mushkil</li>
+                <li>Joins nahi hote (ya limited)</li>
+                <li>Data redundancy ho sakti hai</li>
+                <li>Less mature tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Tab -->
+      <div id="comparison" class="content">
+        <h2 style="color: #2c3e50; text-align: center; margin-bottom: 30px">
+          Detailed Comparison
+        </h2>
+
+        <div class="use-cases">
+          <div class="use-case">
+            <h3>📊 SQL Best For:</h3>
+            <ul>
+              <li>Banking systems</li>
+              <li>E-commerce transactions</li>
+              <li>Accounting software</li>
+              <li>Enterprise applications</li>
+              <li>Complex reporting systems</li>
+              <li>Jahan data relationships important hon</li>
+            </ul>
+          </div>
+
+          <div class="use-case">
+            <h3>🔥 NoSQL Best For:</h3>
+            <ul>
+              <li>Social media platforms</li>
+              <li>Real-time analytics</li>
+              <li>Content management systems</li>
+              <li>IoT applications</li>
+              <li>Mobile apps</li>
+              <li>Gaming leaderboards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="diagram-section">
+          <h2>Working Comparison</h2>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+            <div>
+              <h3 style="color: #667eea">SQL Working:</h3>
+              <div
+                style="
+                  background: white;
+                  padding: 20px;
+                  border-radius: 10px;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <p>
+                  1️⃣ <strong>Query Parser:</strong> SQL query parse hota hai
+                </p>
+                <p>
+                  2️⃣ <strong>Query Optimizer:</strong> Best execution plan
+                  banata hai
+                </p>
+                <p>
+                  3️⃣ <strong>Execution Engine:</strong> Query execute hota hai
+                </p>
+                <p>
+                  4️⃣ <strong>Storage Engine:</strong> Tables se data retrieve
+                  hota hai
+                </p>
+                <p>
+                  5️⃣ <strong>Transaction Manager:</strong> ACID properties
+                  maintain hoti hain
+                </p>
+                <p>
+                  6️⃣ <strong>Result:</strong> Structured data return hota hai
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 style="color: #667eea">NoSQL Working:</h3>
+              <div
+                style="
+                  background: white;
+                  padding: 20px;
+                  border-radius: 10px;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <p>
+                  1️⃣ <strong>API Request:</strong> Direct API call ya query
+                  language
+                </p>
+                <p>
+                  2️⃣ <strong>Routing:</strong> Sharding ke through data locate
+                  hota hai
+                </p>
+                <p>
+                  3️⃣ <strong>Document Lookup:</strong> Key-based direct access
+                </p>
+                <p>4️⃣ <strong>Data Retrieval:</strong> JSON/BSON format mein</p>
+                <p>5️⃣ <strong>Replication:</strong> Multiple nodes se data</p>
+                <p>
+                  6️⃣ <strong>Result:</strong> Flexible documents return hotay
+                  hain
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px">
+          <h3>💡 Kab Kya Use Karein?</h3>
+          <p><strong>SQL use karein agar:</strong></p>
+          <ul>
+            <li>Data structure fixed aur predictable ho</li>
+            <li>Complex relationships aur joins chahiye</li>
+            <li>Data consistency critical ho (banking, finance)</li>
+            <li>ACID transactions zaruri hon</li>
+          </ul>
+          <br />
+          <p><strong>NoSQL use karein agar:</strong></p>
+          <ul>
+            <li>Data structure flexible chahiye</li>
+            <li>Horizontal scaling ki zarurat ho</li>
+            <li>High performance aur speed chahiye</li>
+            <li>Unstructured ya semi-structured data ho</li>
+            <li>Rapid development aur changes hon</li>
+          </ul>
+        </div>
+
+        <div
+          style="
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid #4caf50;
+          "
+        >
+          <h3 style="color: #2e7d32">🎯 Final Recommendation:</h3>
+          <p>
+            Dono databases apni jagah best hain. Kabhi kabhi hybrid approach bhi
+            use hoti hai jahan SQL aur NoSQL dono ek saath use hote hain. Aapke
+            project ki requirements dekh kar decision lena chahiye!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showTab(tabName) {
+        // Hide all contents
+        const contents = document.querySelectorAll(".content");
+        contents.forEach((content) => content.classList.remove("active"));
+
+        // Remove active class from all tabs
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach((tab) => tab.classList.remove("active"));
+
+        // Show selected content
+        document.getElementById(tabName).classList.add("active");
+
+        // Add active class to clicked tab
+        event.target.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
