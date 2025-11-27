@@ -25,16 +25,12 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
 
-        # result = 0
-        # for i in range(32):
-        #     bit = n & 1
-        #     print(n & 1)
-        #     result = (result << 1) | bit  # shift result left, add bit
-        #     n >>= 1  # shift n right for next bit
-        # return result
-        for i in range(10):
-            print(i & 1)
-            print(i | 1)
+        binaryForm = str(bin(n))[2::]
+        reverseBinFrom = binaryForm[::-1]
+        while len(reverseBinFrom) != 32:
+            reverseBinFrom += "0"
+
+        return int(reverseBinFrom, 2)
 
 
 obj = Solution()

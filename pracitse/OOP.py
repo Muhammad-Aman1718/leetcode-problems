@@ -1,120 +1,44 @@
-
-#tight bond O(1),Θ(n)
-# 🧩 Example 1:
-def get_first_element(arr: list[int]):
-    return arr[0]
-
-# 🧪 Mock input:
-numbers = [10, 20, 30, 40]
-print(get_first_element(numbers))
-
-#upper bond O(n),O(n)
-# 🧩 Example 2:
-def check_even(num: int):
-    if num % 2 == 0:
-        return True
-    else:
-        return False
-
-# tight bond O(1),Θ(n)
-# 🧪 Mock input:
-print(check_even(42))
-print(check_even(17))
+class Node:
+    def __init__(self, data: int) -> None:
+        self.data = data
+        self.next: "Node | None" = None
 
 
-#lower bond o(log(n)),Ω(n)
-# 🧩 Example 3:
-def swap(a: int, b: int):
-    temp = a
-    a = b
-    b = temp
-    return a, b
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
 
-#tight bond o(1),Θ(n)
-# 🧪 Mock input:
-x, y = 5, 9
-print(swap(x, y))
+node1.next = node2
+node2.next = node3
+node3.next = node4
 
-#tight bond o(1),Θ(n)
-# 🧩 Example 4:
-def add_two_numbers(a: int, b: int):
-    return a + b
+head = node1
 
-#tight bond o(1),Θ(n)
-# 🧪 Mock input:
-print(add_two_numbers(15, 25))
 
-#lower bond o(log(n)),Ω(n)
-# 🧩 Example 5:
-def find_max_of_three(a: int, b: int, c: int):
-    return max(a, b, c)
+def PrintNodes(head: Node):
+    curr = head
+    while curr:
+        print(curr.data, end=" -> ")
+        curr = curr.next
+    print("None")
 
-#lower bond  o(log(n)),Ω(n)
-# 🧪 Mock input:
-print(find_max_of_three(12, 7, 19))
 
-# upper bond o(n)
-# 🧩 Example 6:
-def print_elements(arr: list[int]):
-    for item in arr:
-        print(item)
+# Add new node in first
+node0 = Node(0)
+node0.next = head
+head = node0
 
-# upper bond o(n)
-# 🧪 Mock input:
-data = [1, 2, 3, 4, 5]
-print_elements(data)
 
-# upper bond o(n)
+#  Add last node in the end
+lastNode = Node(5)
 
-# 🧩 Example 7:
-def find_sum(arr: list[int]):
-    total = 0
-    for num in arr:
-        total += num
-    return total
+curr = head
 
-# upper bond o(n)
-# 🧪 Mock input:
-numbers = [5, 10, 15, 20]
-print(find_sum(numbers))
+while curr.next != None:
+    curr = curr.next
 
-#upper bond o(n)
-# 🧩 Example 8:
-def find_element(arr: list[int], target: int):
-    for num in arr:
-        if num == target:
-            return True
-    return False
+curr.next = lastNode
 
-# upper bond o(n)
-# 🧪 Mock input:
-arr = [3, 6, 9, 12, 15]
-print(find_element(arr, 9))
-print(find_element(arr, 20))
 
-#upper bond o(n)
-# 🧩 Example 9:
-def double_each(arr: list[int]):
-    result: list[int] = []
-    for num in arr:
-        result.append(num * 2)
-    return result
-
-#upper bond o(n)
-# 🧪 Mock input:
-data = [1, 4, 7, 10]
-print(double_each(data))
-
-#upper bond o(n)
-# 🧩 Example 10:
-def count_positives(arr: list[int]):
-    count = 0
-    for num in arr:
-        if num > 0:
-            count += 1
-    return count
-
-# upper bond o(n)
-# 🧪 Mock input:
-nums = [-5, 3, 0, 7, -2, 9]
-print(count_positives(nums))
+PrintNodes(head)
