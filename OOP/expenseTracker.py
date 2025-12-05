@@ -20,6 +20,7 @@ class ExpenseTracker:
         return max(self.expenses)
 
 
+
 tracker = ExpenseTracker()
 tracker.add_expense("Burger", 500, "food")
 tracker.add_expense("Petrol", 2000, "travel")
