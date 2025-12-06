@@ -1,44 +1,40 @@
-class Node:
-    def __init__(self, data: int) -> None:
-        self.data = data
-        self.next: "Node | None" = None
+# class Solution:
+#     def chocolates(self, s: str) -> str:
+#         # code str
+#         s: list[str] = list(s)
+#         print(s)
+#         left = 0
+#         right = len(s) - 1
+
+#         while left <= right:
+#             if s[left] == " ":
+#                 left += 1
+#             elif s[right] == " ":
+#                 right -= 1
+#             else:
+#                 s[right], s[left] = s[left], s[right]
+#                 left += 1
+#                 right -= 1
+
+#         print(s)
+#         return "".join(s)
 
 
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
-
-node1.next = node2
-node2.next = node3
-node3.next = node4
-
-head = node1
+# obj = Solution()
+# s = "Help others"
+# # s = "geeksforgeeks"
+# print(obj.chocolates(s))
 
 
-def PrintNodes(head: Node):
-    curr = head
-    while curr:
-        print(curr.data, end=" -> ")
-        curr = curr.next
-    print("None")
+# class Car:
+#     wheels = None
+
+#     def __init__(self, wheel: int) -> None:
+#         self.wheels = wheel
 
 
-# Add new node in first
-node0 = Node(0)
-node0.next = head
-head = node0
+# car1 = Car(2)
+# print(Car.wheels)
+# print(car1.wheels)
 
 
-#  Add last node in the end
-lastNode = Node(5)
-
-curr = head
-
-while curr.next != None:
-    curr = curr.next
-
-curr.next = lastNode
-
-
-PrintNodes(head)
