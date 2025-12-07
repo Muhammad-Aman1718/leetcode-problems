@@ -36,5 +36,3 @@
 # car1 = Car(2)
 # print(Car.wheels)
 # print(car1.wheels)
-
-
