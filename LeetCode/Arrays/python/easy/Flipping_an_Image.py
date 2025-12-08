@@ -33,7 +33,6 @@ class Solution:
             right = len(image[i]) - 1
 
             while left <= right:
-                # Swap + invert in one step
                 image[i][left], image[i][right] = (
                     1 - image[i][right],
                     1 - image[i][left],
