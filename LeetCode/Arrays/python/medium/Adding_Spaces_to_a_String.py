@@ -33,17 +33,36 @@
 
 class Solution:
     def addSpaces(self, s: str, spaces: list[int]) -> str:
+        # Brute Force
 
-        string: list[str] = list(s)
-        x = 1
-        for i in range(len(spaces)):
-            if i == 0:
-                string.insert(spaces[i], " ")
+        # string: list[str] = list(s)
+        # x = 1
+        # for i in range(len(spaces)):
+        #     if i == 0:
+        #         string.insert(spaces[i], " ")
+        #     else:
+        #         string.insert(spaces[i] + x, " ")
+        #         x += 1
+
+        # return "".join(string)
+
+        # Two pointer technique
+
+        res: list[str] = []
+        i = 0
+        j = 0
+        n = len(s)
+        m = len(spaces)
+
+        while i < n:
+            if j < m and i == spaces[j]:
+                res.append(" ")
+                j += 1
             else:
-                string.insert(spaces[i] + x, " ")
-                x += 1
+                res.append(s[i])
+                i += 1
 
-        return "".join(string)
+        return "".join(res)
 
 
 obj = Solution()
