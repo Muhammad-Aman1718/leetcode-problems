@@ -36,14 +36,22 @@
 # It does not matter what you leave beyond the returned k (hence they are underscores).
 
 
-
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
-        
-        
-        
-        
-        
+
+        if len(nums) <= 2:
+            return len(nums)
+
+        i = 2
+
+        for j in range(2, len(nums)):
+            if nums[j] != nums[i - 2]:
+                nums[i] = nums[j]
+                i += 1
+
+        return i
+
+
 obj = Solution()
-nums = [1,1,1,2,2,3]
+nums = [1, 1, 1, 2, 2, 3]
 print(obj.removeDuplicates(nums))
