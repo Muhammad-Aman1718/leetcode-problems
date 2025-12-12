@@ -23,7 +23,6 @@ class Solution:
 
         for i in s:
             s2Freq[i] = s2Freq.get(i, 0) + 1
-
         return s2Freq
 
     def checkInclusion(self, s1: str, s2: str) -> bool:
