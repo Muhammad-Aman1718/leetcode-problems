@@ -39,6 +39,7 @@ class Solution:
         return count
 
 
+
 obj = Solution()
 
 s = "aababcabc"
