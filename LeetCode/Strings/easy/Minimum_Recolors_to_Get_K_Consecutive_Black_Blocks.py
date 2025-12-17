@@ -31,18 +31,35 @@
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
 
-        count = float("inf")
-        left = 0
-        right = k
+        # Self solving
 
-        while right != len(blocks) + 1:
+        # count = float("inf")
+        # left = 0
+        # right = k
 
-            number = blocks[left:right].count("W")
-            count = min(count, number)
-            right += 1
-            left += 1
+        # while right != len(blocks) + 1:
 
-        return count
+        #     number = blocks[left:right].count("W")
+        #     count = min(count, number)
+        #     right += 1
+        #     left += 1
+
+        # return count
+
+        current_white_count = 0
+        for i in range(k):
+            if blocks[i] == "W":
+                current_white_count += 1
+
+        min_recolors = current_white_count
+        for i in range(k, len(blocks)):
+            if blocks[i] == "W":
+                current_white_count += 1
+            if blocks[i - k] == "W":
+                current_white_count -= 1
+            min_recolors = min(min_recolors, current_white_count)
+
+        return min_recolors
 
 
 obj = Solution()
