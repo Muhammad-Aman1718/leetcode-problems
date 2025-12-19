@@ -34,6 +34,7 @@ class Solution:
         count = 1
 
         for i in range(1, len(nums)):
+
             currDiff = nums[i] - nums[i - 1]
 
             while (currDiff > 0 and prevDiff <= 0) or (currDiff < 0 and prevDiff >= 0):
