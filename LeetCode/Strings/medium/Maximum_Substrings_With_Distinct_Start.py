@@ -32,8 +32,18 @@
 
 class Solution:
     def maxDistinct(self, s: str) -> int:
+        #  Brute force
+        # return len(set(list(s)))
 
-        return len(set(list(s)))
+        # Optimize way
+
+        sSet = set()
+
+        for i in s:
+            if i not in sSet:
+                sSet.add(i)
+
+        return len(sSet)
 
 
 obj = Solution()
