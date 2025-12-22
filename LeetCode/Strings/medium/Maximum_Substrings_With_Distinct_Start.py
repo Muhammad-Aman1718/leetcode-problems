@@ -42,7 +42,6 @@ class Solution:
         for i in s:
             if i not in sSet:
                 sSet.add(i)
-
         return len(sSet)
 
 
