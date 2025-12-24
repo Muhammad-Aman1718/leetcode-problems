@@ -25,7 +25,7 @@ class Solution:
 
         count = 0
         for i in words:
-            if i[0 : len(pref)] == pref:
+            if i.startswith(pref):
                 count += 1
 
         return count
