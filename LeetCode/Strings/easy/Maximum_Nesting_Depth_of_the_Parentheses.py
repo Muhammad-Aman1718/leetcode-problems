@@ -26,16 +26,16 @@
 class Solution:
     def maxDepth(self, s: str) -> int:
 
-        res = []
         count = 0
+        prevCount = 0
 
         for i in s:
             if i == "(":
-                count += 1
+                prevCount += 1
             elif i == ")":
-                count -= 1
-            res.append(count)
-        return max(res)
+                prevCount -= 1
+            count = max(count, prevCount)
+        return count
 
 
 obj = Solution()
