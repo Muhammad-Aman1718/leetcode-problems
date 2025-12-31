@@ -44,7 +44,6 @@ class Solution:
 
         return "".join(stack)
 
-
 obj = Solution()
 # s = "daabcbaabcbc"
 # part = "abc"
