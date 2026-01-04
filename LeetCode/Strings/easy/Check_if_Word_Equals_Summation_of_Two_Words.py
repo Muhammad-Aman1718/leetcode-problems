@@ -53,6 +53,7 @@ class Solution:
 
         return False
 
+
 obj = Solution()
 firstWord = "acb"
 secondWord = "cba"
