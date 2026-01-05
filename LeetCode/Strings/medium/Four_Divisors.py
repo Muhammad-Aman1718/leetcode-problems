@@ -1,4 +1,5 @@
 import math
+
 # Four Divisors
 
 # Given an integer array nums, return the sum of divisors of the integers in that array that have exactly four divisors. If there is no such integer in the array, return 0.
@@ -26,6 +27,9 @@ import math
 
 
 class Solution:
+
+    # Brute Force
+
     # def checkDivision(self, num: int):
 
     #     countDivisidor = 0
@@ -51,6 +55,8 @@ class Solution:
 
     #     return sumOfValues
 
+    # Optimize solution
+
     def checkDivision(self, num: int) -> int:
         divisors = set()
         # Sirf square root tak check karein
@@ -58,15 +64,15 @@ class Solution:
             if num % i == 0:
                 divisors.add(i)
                 divisors.add(num // i)
-                
+
                 # Agar 4 se zyada ho gaye to mazeed check karne ki zaroorat nahi
                 if len(divisors) > 4:
                     return 0
-        
+
         # Agar exact 4 divisors hain to sum return karein
         if len(divisors) == 4:
             return sum(divisors)
-        
+
         return 0
 
     def sumFourDivisors(self, nums: list[int]) -> int:
@@ -74,7 +80,6 @@ class Solution:
         for n in nums:
             total_sum += self.checkDivision(n)
         return total_sum
-
 
 
 obj = Solution()
