@@ -69,7 +69,6 @@ class Solution:
                 if len(divisors) > 4:
                     return 0
 
-        # Agar exact 4 divisors hain to sum return karein
         if len(divisors) == 4:
             return sum(divisors)
 
