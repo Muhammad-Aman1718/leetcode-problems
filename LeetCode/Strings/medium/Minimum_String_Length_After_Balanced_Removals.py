@@ -30,18 +30,33 @@
 class Solution:
     def minLengthAfterRemovals(self, s: str) -> int:
 
-        count = {}
+        # Using HashTable
+
+        # count = {}
+
+        # for i in s:
+        #     count[i] = count.get(i, 0) + 1
+
+        # if "a" not in count:
+        #     return count["b"]
+        # if "b" not in count:
+        #     return count["a"]
+        # return abs(count["a"] - count["b"])
+
+        # Using stacks
+
+        stack = []
 
         for i in s:
-            count[i] = count.get(i, 0) + 1
+            if len(stack) >= 1 and ((stack[-1] + i) == "ab" or (stack[-1] + i) == "ba"):
+                stack.pop()
+            else:
+                stack.append(i)
 
-        if "a" not in count:
-            return count["b"]
-        if "b" not in count:
-            return count["a"]
-        return abs(count["a"] - count["b"])
+        return len(stack)
 
 
 obj = Solution()
-s = "aabbab"
+# s = "aabbab"
+s = "aaabb"
 print(obj.minLengthAfterRemovals(s))
