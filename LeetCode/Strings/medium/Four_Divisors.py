@@ -65,7 +65,6 @@ class Solution:
                 divisors.add(i)
                 divisors.add(num // i)
 
-                # Agar 4 se zyada ho gaye to mazeed check karne ki zaroorat nahi
                 if len(divisors) > 4:
                     return 0
 
