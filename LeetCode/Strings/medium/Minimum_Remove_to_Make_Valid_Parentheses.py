@@ -57,7 +57,6 @@ class Solution:
             else:
                 result += current_char
 
-        # Reverse the result string
         return result[::-1]
 
 
