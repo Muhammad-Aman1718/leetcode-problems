@@ -41,7 +41,6 @@ class Solution:
             while i < n and word[i] == char and count < 9:
                 count += 1
                 i += 1
-
             comp.append(f"{count}{char}")
 
         return "".join(comp)
