@@ -63,32 +63,18 @@ class Solution:
 
         # Optimize Solution 
         
-        vowels_set = set("aeiouAEIOU")
-
-        # Word ke vowels count karne ka function
-        def count_vowels(word):
-            return sum(1 for char in word if char in vowels_set)
-
+        vowels = set("aeiou")
         words = s.split()
-        L, R = 0, len(words) - 1
-
-        while L < R:
-            count_L = count_vowels(words[L])
-            count_R = count_vowels(words[R])
-
-            if count_L == count_R:
-                # Agar vowel count barabar hai to swap karein
-                words[L], words[R] = words[R], words[L]
-                L += 1
-                R -= 1
-            else:
-                # Yeh step problem ki specific condition par depend karta hai
-                # Agar sirf barabar count wale swap karne hain aur baaki nahi
-                # To humein decide karna hoga ke kis pointer ko move karna hai
-                # Note: Usually aisi problems mein nested loops use hote hain 
-                # sahi pair dhundne ke liye.
-                L += 1 
-
+        
+        # count vowels in first word
+        first_vowel_count = sum(1 for ch in words[0] if ch in vowels)
+        
+        # process remaining words
+        for i in range(1, len(words)):
+            vowel_count = sum(1 for ch in words[i] if ch in vowels)
+            if vowel_count == first_vowel_count:
+                words[i] = words[i][::-1]
+        
         return " ".join(words)
 
 
