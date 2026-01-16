@@ -27,17 +27,22 @@
 # The first k = 1 character "h" remains unchanged on reversal. The final resulting string is "hey".
 
 
-
 class Solution:
     def reversePrefix(self, s: str, k: int) -> str:
-        
-        sArr = s.split(" ")
-        print(sArr)
-        
-        
-        
-        
+
+        sArr = list(s)
+
+        left = 0
+        right = k - 1
+        while left <= right:
+            sArr[left], sArr[right] = sArr[right], sArr[left]
+            left += 1
+            right -= 1
+
+        return "".join(sArr)
+
+
 obj = Solution()
 s = "abcd"
 k = 2
-print(obj.reversePrefix(s,k))
+print(obj.reversePrefix(s, k))
