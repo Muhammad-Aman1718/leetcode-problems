@@ -39,7 +39,6 @@ class Solution:
     def arrangeWords(self, text: str) -> str:
         
         textArr = text.lower().split(" ")
-
         sortedWord = sorted(textArr,key=len)
         
         return " ".join(sortedWord).capitalize()
