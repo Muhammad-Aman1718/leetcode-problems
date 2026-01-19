@@ -45,7 +45,6 @@ class Solution:
         
         
         
-        
 obj = Solution()
 text = "Leetcode is cool"
 print(obj.arrangeWords(text))
