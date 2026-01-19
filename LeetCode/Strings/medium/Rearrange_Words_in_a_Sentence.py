@@ -44,7 +44,6 @@ class Solution:
         return " ".join(sortedWord).capitalize()
         
         
-        
 obj = Solution()
 text = "Leetcode is cool"
 print(obj.arrangeWords(text))
