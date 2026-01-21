@@ -49,7 +49,6 @@ class Solution:
             if i.isalpha():
                 result.append(i)
             elif len(result) > 0 and i == "*":
-
                 result.pop()
             elif i == "#":
                 result = result + result
