@@ -59,6 +59,5 @@ class Solution:
 
 
 obj = Solution()
-# s = "a#b%*"
 s = "z*#"
 print(obj.processStr(s))
