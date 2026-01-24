@@ -38,7 +38,6 @@ class Solution:
     def stringSequence(self, target: str) -> list[str]:
 
         result = []
-
         for i in range(len(target)):
             x = 97
             while x <= ord(target[i]):
