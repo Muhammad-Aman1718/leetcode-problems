@@ -14,7 +14,6 @@
 # Example 1:
 
 # Input: target = "abc"
-
 # Output: ["a","aa","ab","aba","abb","abc"]
 
 # Explanation:
