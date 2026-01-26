@@ -46,6 +46,7 @@ class Solution:
         return result
 
 
+
 obj = Solution()
 target = "abc"
 print(obj.stringSequence(target))
