@@ -19,6 +19,7 @@
 class Solution:
 
     def findFreq(self, s: str):
+
         s2Freq: dict[str, int] = {}
 
         for i in s:
