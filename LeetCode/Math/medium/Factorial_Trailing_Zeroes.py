@@ -26,31 +26,12 @@
 class Solution:
     def trailingZeroes(self, n: int) -> int:
 
-        factorial = 1
-        for i in range(n, 0, -1):
-            factorial *= i
-
         count = 0
-        remainderFactorial = 0
+        while n >= 5:
+            n //= 5
+            count += n
 
-        while remainderFactorial == 0:
-            remainderFactorial = factorial % 10
-            print(remainderFactorial)
-            factorial = factorial / 10
-            print(factorial)
-            count += 1
-
-        return count - 1
-
-        # strFactorial = str(factorial)
-        # count = 0
-        # for x in range(len(strFactorial), 0, -1):
-        #     if strFactorial[x - 1] == "0":
-        #         count += 1
-        #     else:
-        #         return count
-
-        # return count
+        return count
 
 
 obj = Solution()
