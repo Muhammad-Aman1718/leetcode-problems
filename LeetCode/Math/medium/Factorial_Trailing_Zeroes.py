@@ -38,5 +38,4 @@ obj = Solution()
 # n = 5
 # n = 10
 n = 30
-# n = 1574
 print(obj.trailingZeroes(n))
