@@ -35,7 +35,7 @@ class Solution:
 
 
 obj = Solution()
-n = 5
+# n = 5
 n = 10
 n = 30
 print(obj.trailingZeroes(n))
