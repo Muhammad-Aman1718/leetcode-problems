@@ -33,3 +33,26 @@
 
 # Input: n = 6
 # Output: 4
+
+
+class Solution:
+    def reinitializePermutation(self, n: int) -> int:
+
+        count = 0
+        curr = 1
+        while True:
+            if curr % 2 == 0:
+                curr = curr // 2
+            else:
+                curr = n // 2 + (curr - 1) // 2
+            count += 1
+
+            if curr == 1:
+                break
+
+        return count
+
+
+obj = Solution()
+n = 6
+print(obj.reinitializePermutation(n))
