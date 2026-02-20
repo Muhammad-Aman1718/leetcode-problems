@@ -28,7 +28,6 @@ class Solution:
         x = n ^ (n >> 1)
         return x & (x + 1) == 0
 
-
 obj = Solution()
 n = 5
 print(obj.hasAlternatingBits(n))
