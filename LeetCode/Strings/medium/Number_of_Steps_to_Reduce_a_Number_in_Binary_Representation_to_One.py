@@ -44,8 +44,6 @@ class Solution:
                 num //= 2
             else:
                 num += 1
-
-            print(num)
             count += 1
 
         return count
