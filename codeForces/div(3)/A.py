@@ -24,8 +24,6 @@ def solve():
             else:
                 stack.append(char) # Match nahi mila, stack mein daal do
         
-        
-        
         # Agar stack khali hai to YES, warna NO
         if not stack:
             results.append("YES")
