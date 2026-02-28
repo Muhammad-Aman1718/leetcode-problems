@@ -1,36 +1,20 @@
 import sys
 
-def solve():
-    # Reading input efficiently
-    input_data = sys.stdin.read().split()
-    if not input_data:
-        return
-    
-    t = int(input_data[0])
-    pointer = 1
-    
-    results = []
-    for _ in range(t):
-        n = int(input_data[pointer])
-        s = input_data[pointer + 1]
-        pointer += 2
-        
-        stack = []
-        
-        for char in s:
-            # Agar stack khali nahi hai aur top element current char ke barabar hai
-            if stack and stack[-1] == char:
-                stack.pop() # Match mil gaya, dono ko '*' bana diya
-            else:
-                stack.append(char) # Match nahi mila, stack mein daal do
-        
-        # Agar stack khali hai to YES, warna NO
-        if not stack:
-            results.append("YES")
-        else:
-            results.append("NO")
-            
-    print("\n".join(results))
+# Input lene ka fast tariqa
+input = sys.stdin.read().split()
+t = int(input[0])
 
-if __name__ == "__main__":
-    solve()
+for i in range(1, t + 1):
+    x = int(input[i])
+    
+    # Hum different digit lengths (L) check karenge
+    for L in range(1, 11):
+    
+        y = (10**L) - 1 - x
+        
+        # Check karein ke y positive hai aur uske digits ki length L hi hai
+        if y > 0 and len(str(y)) == L:
+            # Final check as per problem
+            if (x * (10**L) + y) % (x + y) == 0:
+                print(y)
+                break
