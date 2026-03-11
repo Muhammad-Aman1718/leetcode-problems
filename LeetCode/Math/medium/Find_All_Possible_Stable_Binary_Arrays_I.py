@@ -39,7 +39,7 @@
 
 
 class Solution:
-    def numberOfStableArrays(self, zero: int, one: int, limit: int) -> int:
+    def numberOfStableArrays(self, zero_count: int, one_count: int, limit: int) -> int:
         MOD = 10**9 + 7
         memo = {}
 
