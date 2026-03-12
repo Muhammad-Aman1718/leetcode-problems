@@ -30,15 +30,11 @@ class Solution:
     def bitwiseComplement(self, n: int) -> int:
 
         if n == 0:
-            return 1  # Special case
-
-        # 1. Number ki length maloom karein
-        # 2. Utni hi length ka '111...' mask banayein
+            return 1  
         mask = 1
         while mask < n:
             mask = (mask << 1) | 1
 
-        # 3. XOR kar dein
         return n ^ mask
 
 
