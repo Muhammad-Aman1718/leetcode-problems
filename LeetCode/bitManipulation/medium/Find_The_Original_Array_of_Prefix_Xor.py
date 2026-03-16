@@ -34,7 +34,6 @@ class Solution:
             pref[i] = pref[i] ^ pref[i - 1]
         return pref
 
-
 obj = Solution()
 pref = [5, 2, 0, 3, 1]
 # pref = [13]
