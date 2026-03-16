@@ -1,10 +1,6 @@
-# list1 = [3, 4, 5, 6, 7]
-# for i in list1:
-#     print(list1)
-#     list1.remove(i)
-#     print(list1)
+x = int(input("Enter  a number : "))
 
-# print(list1)
-
-
-print(~-5)
+if x % 2 == 0:
+    print("This is Even Number")
+else:
+    print("This is Odd Number ")
