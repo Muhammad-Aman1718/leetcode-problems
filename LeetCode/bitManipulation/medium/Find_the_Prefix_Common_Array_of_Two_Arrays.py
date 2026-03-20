@@ -31,7 +31,6 @@ class Solution:
         
         
         
-        
 obj = Solution()
 A = [1,3,2,4]
 B = [3,1,2,4]
