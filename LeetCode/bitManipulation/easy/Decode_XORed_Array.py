@@ -31,10 +31,10 @@ class Solution:
 
 
 obj = Solution()
-# encoded = [1, 2, 3]
-# first = 1
-# encoded = [6,2,7,3]
-# first = 4
+encoded = [1, 2, 3]
+first = 1
+encoded = [6,2,7,3]
+first = 4
 encoded = [6]
 first = 1
 
