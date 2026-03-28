@@ -25,6 +25,7 @@ class Solution:
     def decode(self, encoded: list[int], first: int) -> list[int]:
 
         result = [first]
+
         for i in range(len(encoded)):
             result.append(encoded[i] ^ result[i])
         return result
@@ -33,7 +34,7 @@ class Solution:
 obj = Solution()
 encoded = [1, 2, 3]
 first = 1
-encoded = [6,2,7,3]
+encoded = [6, 2, 7, 3]
 first = 4
 encoded = [6]
 first = 1
