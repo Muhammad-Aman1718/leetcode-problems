@@ -34,7 +34,6 @@ class Solution:
     def minBitwiseArray(self, nums: list[int]) -> list[int]:
         
         
-        
 obj = Solution()
 nums = [2,3,5,7]
 print(obj.minBitwiseArray(nums)) 
