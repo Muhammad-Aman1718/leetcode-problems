@@ -23,6 +23,7 @@
 
 class Solution:
     def decode(self, encoded: list[int], first: int) -> list[int]:
+        
         result = [first]
         for i in range(len(encoded)):
             result.append(encoded[i] ^ result[i])
