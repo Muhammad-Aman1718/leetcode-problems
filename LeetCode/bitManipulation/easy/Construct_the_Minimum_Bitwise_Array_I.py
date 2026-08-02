@@ -33,10 +33,23 @@
 class Solution:
     def minBitwiseArray(self, nums: list[int]) -> list[int]:
         
+        ans = []
+
+        for i in nums:
+            found = False
+            for j in range(0, i+1):
+                if  j | (j + 1) == i:
+                    ans.append(j)
+                    found = True
+                    break
+            if not found:
+                ans.append(-1)
         
         
+        return ans
         
         
 obj = Solution()
-nums = [2,3,5,7]
+# nums = [2,3,5,7]
+nums = [11,13,31]
 print(obj.minBitwiseArray(nums)) 
