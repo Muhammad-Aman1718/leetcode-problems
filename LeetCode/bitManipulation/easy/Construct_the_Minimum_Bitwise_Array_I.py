@@ -45,7 +45,6 @@ class Solution:
             if not found:
                 ans.append(-1)
         
-        
         return ans
         
         
