@@ -20,6 +20,7 @@
 class Solution:
     def findErrorNums(self, nums: list[int]) -> list[int]:
 # wrong
+
         arr = []
         j = 1
         for i in range(0, nums[-1]):
