@@ -30,6 +30,7 @@ class Solution:
         return arr
 
 
+
 obj = Solution()
 nums = [1, 2, 2, 4]
 # nums = [1,1]
