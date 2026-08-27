@@ -20,6 +20,7 @@
 class Solution:
     def findErrorNums(self, nums: list[int]) -> list[int]:
         arr = []
+        adf=4
         for i in range(0, nums[-1]):
             if nums[i] == nums[j]:
                 arr.append(nums[i])
